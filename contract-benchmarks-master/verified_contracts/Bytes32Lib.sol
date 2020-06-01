@@ -1,0 +1,37 @@
+/// @title Token Register Contract
+/// @author Kongliang Zhong - <<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ee8581808982878f8089ae8281819e9c878089c0819c89">[email protected]</a>&gt;,&#13;
+/// @author Daniel Wang - &lt;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b4f4a45424e476b4744445b5942454c0544594c">[email protected]</a>&gt;.&#13;
+library Bytes32Lib {&#13;
+&#13;
+    function xorReduce(&#13;
+        bytes32[]   arr,&#13;
+        uint        len&#13;
+        )&#13;
+        public&#13;
+        constant&#13;
+        returns (bytes32 res) {&#13;
+&#13;
+        res = arr[0];&#13;
+        for (uint i = 1; i &lt; len; i++) {&#13;
+            res = _xor(res, arr[i]);&#13;
+        }&#13;
+    }&#13;
+&#13;
+    function _xor(&#13;
+        bytes32 bs1,&#13;
+        bytes32 bs2&#13;
+        )&#13;
+        public&#13;
+        constant&#13;
+        returns (bytes32 res) {&#13;
+&#13;
+        bytes memory temp = new bytes(32);&#13;
+        for (uint i = 0; i &lt; 32; i++) {&#13;
+            temp[i] = bs1[i] ^ bs2[i];&#13;
+        }&#13;
+        string memory str = string(temp);&#13;
+        assembly {&#13;
+            res := mload(add(str, 32))&#13;
+        }&#13;
+    }&#13;
+}

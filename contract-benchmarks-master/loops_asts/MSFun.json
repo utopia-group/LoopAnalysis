@@ -1,0 +1,5051 @@
+JSON AST (compact format):
+
+
+======= ./contract-benchmarks-master/loops/MSFun.sol =======
+{
+	"absolutePath" : "./contract-benchmarks-master/loops/MSFun.sol",
+	"exportedSymbols" : 
+	{
+		"MSFun" : 
+		[
+			344
+		]
+	},
+	"id" : 345,
+	"nodeType" : "SourceUnit",
+	"nodes" : 
+	[
+		{
+			"id" : 1,
+			"literals" : 
+			[
+				"solidity",
+				"^",
+				"0.4",
+				".24"
+			],
+			"nodeType" : "PragmaDirective",
+			"src" : "0:24:0"
+		},
+		{
+			"baseContracts" : [],
+			"contractDependencies" : [],
+			"contractKind" : "library",
+			"documentation" : "@title -MSFun- v0.2.4\r\n\u250c\u252c\u2510\u250c\u2500\u2510\u250c\u2500\u2510\u250c\u252c\u2510   \u2566\u2566 \u2566\u2554\u2550\u2557\u2554\u2566\u2557  \u250c\u2500\u2510\u252c\u2500\u2510\u250c\u2500\u2510\u250c\u2500\u2510\u250c\u2500\u2510\u250c\u2510\u250c\u250c\u252c\u2510\u250c\u2500\u2510\r\n \u2502 \u251c\u2524 \u251c\u2500\u2524\u2502\u2502\u2502   \u2551\u2551 \u2551\u255a\u2550\u2557 \u2551   \u251c\u2500\u2518\u251c\u252c\u2518\u251c\u2524 \u2514\u2500\u2510\u251c\u2524 \u2502\u2502\u2502 \u2502 \u2514\u2500\u2510\r\n \u2534 \u2514\u2500\u2518\u2534 \u2534\u2534 \u2534  \u255a\u255d\u255a\u2550\u255d\u255a\u2550\u255d \u2569   \u2534  \u2534\u2514\u2500\u2514\u2500\u2518\u2514\u2500\u2518\u2514\u2500\u2518\u2518\u2514\u2518 \u2534 \u2514\u2500\u2518\r\n                                 _____                      _____\r\n                                (, /     /)       /) /)    (, /      /)          /)\r\n         \u250c\u2500\u2510                      /   _ (/_      // //       /  _   // _   __  _(/\r\n         \u251c\u2500\u2524                  ___/___(/_/(__(_/_(/_(/_   ___/__/_)_(/_(_(_/ (_(_(_\r\n         \u2534 \u2534                /   /          .-/ _____   (__ /                               \r\n                           (__ /          (_/ (, /                                      /)\u2122 \r\n                                                /  __  __ __ __  _   __ __  _  _/_ _  _(/\r\n\u250c\u2500\u2510\u252c\u2500\u2510\u250c\u2500\u2510\u250c\u252c\u2510\u252c \u252c\u250c\u2500\u2510\u250c\u252c\u2510                          /__/ (_(__(_)/ (_/_)_(_)/ (_(_(_(__(/_(_(_\r\n\u251c\u2500\u2518\u251c\u252c\u2518\u2502 \u2502 \u2502\u2502\u2502 \u2502\u2502   \u2502                      (__ /              .-/  \u00a9 Jekyll Island Inc. 2018\r\n\u2534  \u2534\u2514\u2500\u2514\u2500\u2518\u2500\u2534\u2518\u2514\u2500\u2518\u2514\u2500\u2518 \u2534                                        (_/\r\n _           _             _  _  _  _             _  _  _  _  _                                      \r\n(_) _     _ (_)==========_(_)(_)(_)(_)_==========(_)(_)(_)(_)(_)================================*\r\n(_)(_)   (_)(_)         (_)          (_)         (_)       _         _    _  _  _  _                 \r\n(_) (_)_(_) (_)         (_)_  _  _  _            (_) _  _ (_)       (_)  (_)(_)(_)(_)_               \r\n(_)   (_)   (_)           (_)(_)(_)(_)_          (_)(_)(_)(_)       (_)  (_)        (_)              \r\n(_)         (_)  _  _    _           (_)  _  _   (_)      (_)       (_)  (_)        (_)  _  _        \r\n(_)=========(_)=(_)(_)==(_)_  _  _  _(_)=(_)(_)==(_)======(_)_  _  _(_)_ (_)========(_)=(_)(_)==*\r\n(_)         (_) (_)(_)    (_)(_)(_)(_)   (_)(_)  (_)        (_)(_)(_) (_)(_)        (_) (_)(_)\r\n\n * \u2554\u2550\u2557\u250c\u2500\u2510\u250c\u2510\u250c\u250c\u252c\u2510\u252c\u2500\u2510\u250c\u2500\u2510\u250c\u2500\u2510\u250c\u252c\u2510  \u2554\u2550\u2557\u250c\u2500\u2510\u250c\u252c\u2510\u250c\u2500\u2510 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n\u2551  \u2502 \u2502\u2502\u2502\u2502 \u2502 \u251c\u252c\u2518\u251c\u2500\u2524\u2502   \u2502   \u2551  \u2502 \u2502 \u2502\u2502\u251c\u2524  \u2502 Inventor \u2502\r\n\u255a\u2550\u255d\u2514\u2500\u2518\u2518\u2514\u2518 \u2534 \u2534\u2514\u2500\u2534 \u2534\u2514\u2500\u2518 \u2534   \u255a\u2550\u255d\u2514\u2500\u2518\u2500\u2534\u2518\u2514\u2500\u2518 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\n \r\n        \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n        \u2502 MSFun, is an importable library that gives your contract the ability \u2502\r\n        \u2502 add multiSig requirement to functions.                               \u2502\r\n        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\n                               \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n                               \u2502 Setup Instructions \u2502\r\n                               \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\n(Step 1) import the library into your contract\r\n\r\n   import \"./MSFun.sol\";\r\n\n * (Step 2) set up the signature data for msFun\r\n\r\n    MSFun.Data private msData;\r\n                               \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n                               \u2502 Usage Instructions \u2502\r\n                               \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\nat the beginning of a function\r\n\r\n    function functionName() \r\n    {\r\n        if (MSFun.multiSig(msData, required signatures, \"functionName\") == true)\r\n        {\r\n            MSFun.deleteProposal(msData, \"functionName\");\r\n\r\n            // put function body here \r\n        }\r\n    }\r\n                          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n                          \u2502 Optional Wrappers For TeamJust \u2502\r\n                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\nmultiSig wrapper function (cuts down on inputs, improves readability)\r\nthis wrapper is HIGHLY recommended\r\n\r\n    function multiSig(bytes32 _whatFunction) private returns (bool) {return(MSFun.multiSig(msData, TeamJust.requiredSignatures(), _whatFunction));}\r\n    function multiSigDev(bytes32 _whatFunction) private returns (bool) {return(MSFun.multiSig(msData, TeamJust.requiredDevSignatures(), _whatFunction));}\r\n\n * wrapper for delete proposal (makes code cleaner)\r\n    \r\n    function deleteProposal(bytes32 _whatFunction) private {MSFun.deleteProposal(msData, _whatFunction);}\r\n                            \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n                            \u2502 Utility & Vanity Functions \u2502\r\n                            \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\ndelete any proposal is highly recommended.  without it, if an admin calls a multiSig\r\nfunction, with argument inputs that the other admins do not agree upon, the function\r\ncan never be executed until the undesirable arguments are approved.\r\n\r\n    function deleteAnyProposal(bytes32 _whatFunction) onlyDevs() public {MSFun.deleteProposal(msData, _whatFunction);}\r\n\r\nfor viewing who has signed a proposal & proposal data\r\n    \r\n    function checkData(bytes32 _whatFunction) onlyAdmins() public view returns(bytes32, uint256) {return(MSFun.checkMsgData(msData, _whatFunction), MSFun.checkCount(msData, _whatFunction));}\r\n\n * lets you check address of up to 3 signers (address)\r\n\r\n    function checkSignersByAddress(bytes32 _whatFunction, uint256 _signerA, uint256 _signerB, uint256 _signerC) onlyAdmins() public view returns(address, address, address) {return(MSFun.checkSigner(msData, _whatFunction, _signerA), MSFun.checkSigner(msData, _whatFunction, _signerB), MSFun.checkSigner(msData, _whatFunction, _signerC));}\r\n\n * same as above but will return names in string format.\r\n\n *     function checkSignersByName(bytes32 _whatFunction, uint256 _signerA, uint256 _signerB, uint256 _signerC) onlyAdmins() public view returns(bytes32, bytes32, bytes32) {return(TeamJust.adminName(MSFun.checkSigner(msData, _whatFunction, _signerA)), TeamJust.adminName(MSFun.checkSigner(msData, _whatFunction, _signerB)), TeamJust.adminName(MSFun.checkSigner(msData, _whatFunction, _signerC)));}\r\n                            \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\r\n                            \u2502 Functions In Depth Guide \u2502\r\n                            \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\r\nIn the following examples, the Data is the proposal set for this library.  And\r\nthe bytes32 is the name of the function.\r\n\n * MSFun.multiSig(Data, uint256, bytes32) - Manages creating/updating multiSig \r\n     proposal for the function being called.  The uint256 is the required \r\n     number of signatures needed before the multiSig will return true.  \r\n     Upon first call, multiSig will create a proposal and store the arguments \r\n     passed with the function call as msgData.  Any admins trying to sign the \r\n     function call will need to send the same argument values. Once required\r\n     number of signatures is reached this will return a bool of true.\r\n\r\nMSFun.deleteProposal(Data, bytes32) - once multiSig unlocks the function body,\r\n     you will want to delete the proposal data.  This does that.\r\n\n * MSFun.checkMsgData(Data, bytes32) - checks the message data for any given proposal \r\n\r\nMSFun.checkCount(Data, bytes32) - checks the number of admins that have signed\r\n     the proposal \r\n\r\nMSFun.checkSigners(data, bytes32, uint256) - checks the address of a given signer.\r\n     the uint256, is the log number of the signer (ie 1st signer, 2nd signer)\r",
+			"fullyImplemented" : true,
+			"id" : 344,
+			"linearizedBaseContracts" : 
+			[
+				344
+			],
+			"name" : "MSFun",
+			"nodeType" : "ContractDefinition",
+			"nodes" : 
+			[
+				{
+					"canonicalName" : "MSFun.Data",
+					"id" : 6,
+					"members" : 
+					[
+						{
+							"constant" : false,
+							"id" : 5,
+							"name" : "proposal_",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 6,
+							"src" : "8898:43:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+								"typeString" : "mapping(bytes32 => struct MSFun.ProposalData)"
+							},
+							"typeName" : 
+							{
+								"id" : 4,
+								"keyType" : 
+								{
+									"id" : 2,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "8907:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "Mapping",
+								"src" : "8898:33:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+									"typeString" : "mapping(bytes32 => struct MSFun.ProposalData)"
+								},
+								"valueType" : 
+								{
+									"contractScope" : null,
+									"id" : 3,
+									"name" : "ProposalData",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 19,
+									"src" : "8918:12:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_struct$_ProposalData_$19_storage_ptr",
+										"typeString" : "struct MSFun.ProposalData"
+									}
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						}
+					],
+					"name" : "Data",
+					"nodeType" : "StructDefinition",
+					"scope" : 344,
+					"src" : "8869:80:0",
+					"visibility" : "public"
+				},
+				{
+					"canonicalName" : "MSFun.ProposalData",
+					"id" : 19,
+					"members" : 
+					[
+						{
+							"constant" : false,
+							"id" : 8,
+							"name" : "msgData",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 19,
+							"src" : "9024:15:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_bytes32",
+								"typeString" : "bytes32"
+							},
+							"typeName" : 
+							{
+								"id" : 7,
+								"name" : "bytes32",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "9024:7:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 10,
+							"name" : "count",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 19,
+							"src" : "9080:13:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_uint256",
+								"typeString" : "uint256"
+							},
+							"typeName" : 
+							{
+								"id" : 9,
+								"name" : "uint256",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "9080:7:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 14,
+							"name" : "admin",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 19,
+							"src" : "9154:31:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_mapping$_t_address_$_t_bool_$",
+								"typeString" : "mapping(address => bool)"
+							},
+							"typeName" : 
+							{
+								"id" : 13,
+								"keyType" : 
+								{
+									"id" : 11,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9163:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"nodeType" : "Mapping",
+								"src" : "9154:25:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_mapping$_t_address_$_t_bool_$",
+									"typeString" : "mapping(address => bool)"
+								},
+								"valueType" : 
+								{
+									"id" : 12,
+									"name" : "bool",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9174:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 18,
+							"name" : "log",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 19,
+							"src" : "9239:32:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+								"typeString" : "mapping(uint256 => address)"
+							},
+							"typeName" : 
+							{
+								"id" : 17,
+								"keyType" : 
+								{
+									"id" : 15,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9248:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"nodeType" : "Mapping",
+								"src" : "9239:28:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+									"typeString" : "mapping(uint256 => address)"
+								},
+								"valueType" : 
+								{
+									"id" : 16,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9259:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						}
+					],
+					"name" : "ProposalData",
+					"nodeType" : "StructDefinition",
+					"scope" : 344,
+					"src" : "8955:324:0",
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 176,
+						"nodeType" : "Block",
+						"src" : "9601:4039:0",
+						"statements" : 
+						[
+							{
+								"assignments" : 
+								[
+									31
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 31,
+										"name" : "_whatProposal",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 177,
+										"src" : "9850:21:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"typeName" : 
+										{
+											"id" : 30,
+											"name" : "bytes32",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "9850:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 35,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 33,
+											"name" : "_whatFunction",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 25,
+											"src" : "9887:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										],
+										"id" : 32,
+										"name" : "whatProposal",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 261,
+										"src" : "9874:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
+											"typeString" : "function (bytes32) view returns (bytes32)"
+										}
+									},
+									"id" : 34,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "9874:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "9850:51:0"
+							},
+							{
+								"assignments" : 
+								[
+									37
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 37,
+										"name" : "_currentCount",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 177,
+										"src" : "10011:21:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										},
+										"typeName" : 
+										{
+											"id" : 36,
+											"name" : "uint256",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "10011:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 43,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"baseExpression" : 
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 38,
+												"name" : "self",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 21,
+												"src" : "10035:4:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+													"typeString" : "struct MSFun.Data storage pointer"
+												}
+											},
+											"id" : 39,
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "proposal_",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : 5,
+											"src" : "10035:14:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+												"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+											}
+										},
+										"id" : 41,
+										"indexExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 40,
+											"name" : "_whatProposal",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 31,
+											"src" : "10050:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "IndexAccess",
+										"src" : "10035:29:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+											"typeString" : "struct MSFun.ProposalData storage ref"
+										}
+									},
+									"id" : 42,
+									"isConstant" : false,
+									"isLValue" : true,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"memberName" : "count",
+									"nodeType" : "MemberAccess",
+									"referencedDeclaration" : 10,
+									"src" : "10035:35:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "10011:59:0"
+							},
+							{
+								"assignments" : 
+								[
+									45
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 45,
+										"name" : "_whichAdmin",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 177,
+										"src" : "10501:19:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										},
+										"typeName" : 
+										{
+											"id" : 44,
+											"name" : "address",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "10501:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 48,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 46,
+										"name" : "msg",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 359,
+										"src" : "10523:3:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_magic_message",
+											"typeString" : "msg"
+										}
+									},
+									"id" : 47,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"memberName" : "sender",
+									"nodeType" : "MemberAccess",
+									"referencedDeclaration" : null,
+									"src" : "10523:10:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "10501:32:0"
+							},
+							{
+								"assignments" : 
+								[
+									50
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 50,
+										"name" : "_msgData",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 177,
+										"src" : "10808:16:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"typeName" : 
+										{
+											"id" : 49,
+											"name" : "bytes32",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "10808:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 55,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 52,
+												"name" : "msg",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 359,
+												"src" : "10837:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_magic_message",
+													"typeString" : "msg"
+												}
+											},
+											"id" : 53,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "data",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "10837:8:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes_calldata_ptr",
+												"typeString" : "bytes calldata"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bytes_calldata_ptr",
+												"typeString" : "bytes calldata"
+											}
+										],
+										"id" : 51,
+										"name" : "keccak256",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 353,
+										"src" : "10827:9:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_sha3_pure$__$returns$_t_bytes32_$",
+											"typeString" : "function () pure returns (bytes32)"
+										}
+									},
+									"id" : 54,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "10827:19:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "10808:38:0"
+							},
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 58,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 56,
+										"name" : "_currentCount",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 37,
+										"src" : "10947:13:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "==",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"hexValue" : "30",
+										"id" : 57,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : true,
+										"kind" : "number",
+										"lValueRequested" : false,
+										"nodeType" : "Literal",
+										"src" : "10964:1:0",
+										"subdenomination" : null,
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_rational_0_by_1",
+											"typeString" : "int_const 0"
+										},
+										"value" : "0"
+									},
+									"src" : "10947:18:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : 
+								{
+									"condition" : 
+									{
+										"argumentTypes" : null,
+										"commonType" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"id" : 118,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"leftExpression" : 
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"baseExpression" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 112,
+														"name" : "self",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 21,
+														"src" : "12106:4:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+															"typeString" : "struct MSFun.Data storage pointer"
+														}
+													},
+													"id" : 113,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"memberName" : "proposal_",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 5,
+													"src" : "12106:14:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+														"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+													}
+												},
+												"id" : 115,
+												"indexExpression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 114,
+													"name" : "_whatProposal",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 31,
+													"src" : "12121:13:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bytes32",
+														"typeString" : "bytes32"
+													}
+												},
+												"isConstant" : false,
+												"isLValue" : true,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"nodeType" : "IndexAccess",
+												"src" : "12106:29:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+													"typeString" : "struct MSFun.ProposalData storage ref"
+												}
+											},
+											"id" : 116,
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "msgData",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : 8,
+											"src" : "12106:37:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"nodeType" : "BinaryOperation",
+										"operator" : "==",
+										"rightExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 117,
+											"name" : "_msgData",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 50,
+											"src" : "12147:8:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"src" : "12106:49:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"falseBody" : null,
+									"id" : 174,
+									"nodeType" : "IfStatement",
+									"src" : "12102:1531:0",
+									"trueBody" : 
+									{
+										"id" : 173,
+										"nodeType" : "Block",
+										"src" : "12157:1476:0",
+										"statements" : 
+										[
+											{
+												"condition" : 
+												{
+													"argumentTypes" : null,
+													"commonType" : 
+													{
+														"typeIdentifier" : "t_bool",
+														"typeString" : "bool"
+													},
+													"id" : 127,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"leftExpression" : 
+													{
+														"argumentTypes" : null,
+														"baseExpression" : 
+														{
+															"argumentTypes" : null,
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"baseExpression" : 
+																{
+																	"argumentTypes" : null,
+																	"expression" : 
+																	{
+																		"argumentTypes" : null,
+																		"id" : 119,
+																		"name" : "self",
+																		"nodeType" : "Identifier",
+																		"overloadedDeclarations" : [],
+																		"referencedDeclaration" : 21,
+																		"src" : "12264:4:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																			"typeString" : "struct MSFun.Data storage pointer"
+																		}
+																	},
+																	"id" : 120,
+																	"isConstant" : false,
+																	"isLValue" : true,
+																	"isPure" : false,
+																	"lValueRequested" : false,
+																	"memberName" : "proposal_",
+																	"nodeType" : "MemberAccess",
+																	"referencedDeclaration" : 5,
+																	"src" : "12264:14:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																		"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																	}
+																},
+																"id" : 122,
+																"indexExpression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 121,
+																	"name" : "_whatProposal",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 31,
+																	"src" : "12279:13:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_bytes32",
+																		"typeString" : "bytes32"
+																	}
+																},
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"nodeType" : "IndexAccess",
+																"src" : "12264:29:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																	"typeString" : "struct MSFun.ProposalData storage ref"
+																}
+															},
+															"id" : 123,
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"memberName" : "admin",
+															"nodeType" : "MemberAccess",
+															"referencedDeclaration" : 14,
+															"src" : "12264:35:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_mapping$_t_address_$_t_bool_$",
+																"typeString" : "mapping(address => bool)"
+															}
+														},
+														"id" : 125,
+														"indexExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 124,
+															"name" : "_whichAdmin",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 45,
+															"src" : "12300:11:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_address",
+																"typeString" : "address"
+															}
+														},
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"nodeType" : "IndexAccess",
+														"src" : "12264:48:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_bool",
+															"typeString" : "bool"
+														}
+													},
+													"nodeType" : "BinaryOperation",
+													"operator" : "==",
+													"rightExpression" : 
+													{
+														"argumentTypes" : null,
+														"hexValue" : "66616c7365",
+														"id" : 126,
+														"isConstant" : false,
+														"isLValue" : false,
+														"isPure" : true,
+														"kind" : "bool",
+														"lValueRequested" : false,
+														"nodeType" : "Literal",
+														"src" : "12316:5:0",
+														"subdenomination" : null,
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_bool",
+															"typeString" : "bool"
+														},
+														"value" : "false"
+													},
+													"src" : "12264:57:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bool",
+														"typeString" : "bool"
+													}
+												},
+												"falseBody" : null,
+												"id" : 160,
+												"nodeType" : "IfStatement",
+												"src" : "12260:537:0",
+												"trueBody" : 
+												{
+													"id" : 159,
+													"nodeType" : "Block",
+													"src" : "12337:460:0",
+													"statements" : 
+													[
+														{
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 137,
+																"isConstant" : false,
+																"isLValue" : false,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"leftHandSide" : 
+																{
+																	"argumentTypes" : null,
+																	"baseExpression" : 
+																	{
+																		"argumentTypes" : null,
+																		"expression" : 
+																		{
+																			"argumentTypes" : null,
+																			"baseExpression" : 
+																			{
+																				"argumentTypes" : null,
+																				"expression" : 
+																				{
+																					"argumentTypes" : null,
+																					"id" : 128,
+																					"name" : "self",
+																					"nodeType" : "Identifier",
+																					"overloadedDeclarations" : [],
+																					"referencedDeclaration" : 21,
+																					"src" : "12399:4:0",
+																					"typeDescriptions" : 
+																					{
+																						"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																						"typeString" : "struct MSFun.Data storage pointer"
+																					}
+																				},
+																				"id" : 131,
+																				"isConstant" : false,
+																				"isLValue" : true,
+																				"isPure" : false,
+																				"lValueRequested" : false,
+																				"memberName" : "proposal_",
+																				"nodeType" : "MemberAccess",
+																				"referencedDeclaration" : 5,
+																				"src" : "12399:14:0",
+																				"typeDescriptions" : 
+																				{
+																					"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																					"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																				}
+																			},
+																			"id" : 132,
+																			"indexExpression" : 
+																			{
+																				"argumentTypes" : null,
+																				"id" : 130,
+																				"name" : "_whatProposal",
+																				"nodeType" : "Identifier",
+																				"overloadedDeclarations" : [],
+																				"referencedDeclaration" : 31,
+																				"src" : "12414:13:0",
+																				"typeDescriptions" : 
+																				{
+																					"typeIdentifier" : "t_bytes32",
+																					"typeString" : "bytes32"
+																				}
+																			},
+																			"isConstant" : false,
+																			"isLValue" : true,
+																			"isPure" : false,
+																			"lValueRequested" : false,
+																			"nodeType" : "IndexAccess",
+																			"src" : "12399:29:0",
+																			"typeDescriptions" : 
+																			{
+																				"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																				"typeString" : "struct MSFun.ProposalData storage ref"
+																			}
+																		},
+																		"id" : 133,
+																		"isConstant" : false,
+																		"isLValue" : true,
+																		"isPure" : false,
+																		"lValueRequested" : false,
+																		"memberName" : "admin",
+																		"nodeType" : "MemberAccess",
+																		"referencedDeclaration" : 14,
+																		"src" : "12399:35:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_mapping$_t_address_$_t_bool_$",
+																			"typeString" : "mapping(address => bool)"
+																		}
+																	},
+																	"id" : 135,
+																	"indexExpression" : 
+																	{
+																		"argumentTypes" : null,
+																		"id" : 134,
+																		"name" : "_whichAdmin",
+																		"nodeType" : "Identifier",
+																		"overloadedDeclarations" : [],
+																		"referencedDeclaration" : 45,
+																		"src" : "12435:11:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_address",
+																			"typeString" : "address"
+																		}
+																	},
+																	"isConstant" : false,
+																	"isLValue" : true,
+																	"isPure" : false,
+																	"lValueRequested" : true,
+																	"nodeType" : "IndexAccess",
+																	"src" : "12399:48:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_bool",
+																		"typeString" : "bool"
+																	}
+																},
+																"nodeType" : "Assignment",
+																"operator" : "=",
+																"rightHandSide" : 
+																{
+																	"argumentTypes" : null,
+																	"hexValue" : "74727565",
+																	"id" : 136,
+																	"isConstant" : false,
+																	"isLValue" : false,
+																	"isPure" : true,
+																	"kind" : "bool",
+																	"lValueRequested" : false,
+																	"nodeType" : "Literal",
+																	"src" : "12450:4:0",
+																	"subdenomination" : null,
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_bool",
+																		"typeString" : "bool"
+																	},
+																	"value" : "true"
+																},
+																"src" : "12399:55:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bool",
+																	"typeString" : "bool"
+																}
+															},
+															"id" : 138,
+															"nodeType" : "ExpressionStatement",
+															"src" : "12399:55:0"
+														},
+														{
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 148,
+																"isConstant" : false,
+																"isLValue" : false,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"leftHandSide" : 
+																{
+																	"argumentTypes" : null,
+																	"baseExpression" : 
+																	{
+																		"argumentTypes" : null,
+																		"expression" : 
+																		{
+																			"argumentTypes" : null,
+																			"baseExpression" : 
+																			{
+																				"argumentTypes" : null,
+																				"expression" : 
+																				{
+																					"argumentTypes" : null,
+																					"id" : 139,
+																					"name" : "self",
+																					"nodeType" : "Identifier",
+																					"overloadedDeclarations" : [],
+																					"referencedDeclaration" : 21,
+																					"src" : "12591:4:0",
+																					"typeDescriptions" : 
+																					{
+																						"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																						"typeString" : "struct MSFun.Data storage pointer"
+																					}
+																				},
+																				"id" : 142,
+																				"isConstant" : false,
+																				"isLValue" : true,
+																				"isPure" : false,
+																				"lValueRequested" : false,
+																				"memberName" : "proposal_",
+																				"nodeType" : "MemberAccess",
+																				"referencedDeclaration" : 5,
+																				"src" : "12591:14:0",
+																				"typeDescriptions" : 
+																				{
+																					"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																					"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																				}
+																			},
+																			"id" : 143,
+																			"indexExpression" : 
+																			{
+																				"argumentTypes" : null,
+																				"id" : 141,
+																				"name" : "_whatProposal",
+																				"nodeType" : "Identifier",
+																				"overloadedDeclarations" : [],
+																				"referencedDeclaration" : 31,
+																				"src" : "12606:13:0",
+																				"typeDescriptions" : 
+																				{
+																					"typeIdentifier" : "t_bytes32",
+																					"typeString" : "bytes32"
+																				}
+																			},
+																			"isConstant" : false,
+																			"isLValue" : true,
+																			"isPure" : false,
+																			"lValueRequested" : false,
+																			"nodeType" : "IndexAccess",
+																			"src" : "12591:29:0",
+																			"typeDescriptions" : 
+																			{
+																				"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																				"typeString" : "struct MSFun.ProposalData storage ref"
+																			}
+																		},
+																		"id" : 144,
+																		"isConstant" : false,
+																		"isLValue" : true,
+																		"isPure" : false,
+																		"lValueRequested" : false,
+																		"memberName" : "log",
+																		"nodeType" : "MemberAccess",
+																		"referencedDeclaration" : 18,
+																		"src" : "12591:33:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+																			"typeString" : "mapping(uint256 => address)"
+																		}
+																	},
+																	"id" : 146,
+																	"indexExpression" : 
+																	{
+																		"argumentTypes" : null,
+																		"id" : 145,
+																		"name" : "_currentCount",
+																		"nodeType" : "Identifier",
+																		"overloadedDeclarations" : [],
+																		"referencedDeclaration" : 37,
+																		"src" : "12625:13:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_uint256",
+																			"typeString" : "uint256"
+																		}
+																	},
+																	"isConstant" : false,
+																	"isLValue" : true,
+																	"isPure" : false,
+																	"lValueRequested" : true,
+																	"nodeType" : "IndexAccess",
+																	"src" : "12591:48:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_address",
+																		"typeString" : "address"
+																	}
+																},
+																"nodeType" : "Assignment",
+																"operator" : "=",
+																"rightHandSide" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 147,
+																	"name" : "_whichAdmin",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 45,
+																	"src" : "12642:11:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_address",
+																		"typeString" : "address"
+																	}
+																},
+																"src" : "12591:62:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_address",
+																	"typeString" : "address"
+																}
+															},
+															"id" : 149,
+															"nodeType" : "ExpressionStatement",
+															"src" : "12591:62:0"
+														},
+														{
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 157,
+																"isConstant" : false,
+																"isLValue" : false,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"leftHandSide" : 
+																{
+																	"argumentTypes" : null,
+																	"expression" : 
+																	{
+																		"argumentTypes" : null,
+																		"baseExpression" : 
+																		{
+																			"argumentTypes" : null,
+																			"expression" : 
+																			{
+																				"argumentTypes" : null,
+																				"id" : 150,
+																				"name" : "self",
+																				"nodeType" : "Identifier",
+																				"overloadedDeclarations" : [],
+																				"referencedDeclaration" : 21,
+																				"src" : "12739:4:0",
+																				"typeDescriptions" : 
+																				{
+																					"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																					"typeString" : "struct MSFun.Data storage pointer"
+																				}
+																			},
+																			"id" : 153,
+																			"isConstant" : false,
+																			"isLValue" : true,
+																			"isPure" : false,
+																			"lValueRequested" : false,
+																			"memberName" : "proposal_",
+																			"nodeType" : "MemberAccess",
+																			"referencedDeclaration" : 5,
+																			"src" : "12739:14:0",
+																			"typeDescriptions" : 
+																			{
+																				"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																				"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																			}
+																		},
+																		"id" : 154,
+																		"indexExpression" : 
+																		{
+																			"argumentTypes" : null,
+																			"id" : 152,
+																			"name" : "_whatProposal",
+																			"nodeType" : "Identifier",
+																			"overloadedDeclarations" : [],
+																			"referencedDeclaration" : 31,
+																			"src" : "12754:13:0",
+																			"typeDescriptions" : 
+																			{
+																				"typeIdentifier" : "t_bytes32",
+																				"typeString" : "bytes32"
+																			}
+																		},
+																		"isConstant" : false,
+																		"isLValue" : true,
+																		"isPure" : false,
+																		"lValueRequested" : false,
+																		"nodeType" : "IndexAccess",
+																		"src" : "12739:29:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																			"typeString" : "struct MSFun.ProposalData storage ref"
+																		}
+																	},
+																	"id" : 155,
+																	"isConstant" : false,
+																	"isLValue" : true,
+																	"isPure" : false,
+																	"lValueRequested" : true,
+																	"memberName" : "count",
+																	"nodeType" : "MemberAccess",
+																	"referencedDeclaration" : 10,
+																	"src" : "12739:35:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_uint256",
+																		"typeString" : "uint256"
+																	}
+																},
+																"nodeType" : "Assignment",
+																"operator" : "+=",
+																"rightHandSide" : 
+																{
+																	"argumentTypes" : null,
+																	"hexValue" : "31",
+																	"id" : 156,
+																	"isConstant" : false,
+																	"isLValue" : false,
+																	"isPure" : true,
+																	"kind" : "number",
+																	"lValueRequested" : false,
+																	"nodeType" : "Literal",
+																	"src" : "12778:1:0",
+																	"subdenomination" : null,
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_rational_1_by_1",
+																		"typeString" : "int_const 1"
+																	},
+																	"value" : "1"
+																},
+																"src" : "12739:40:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_uint256",
+																	"typeString" : "uint256"
+																}
+															},
+															"id" : 158,
+															"nodeType" : "ExpressionStatement",
+															"src" : "12739:40:0"
+														}
+													]
+												}
+											},
+											{
+												"condition" : 
+												{
+													"argumentTypes" : null,
+													"commonType" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													},
+													"id" : 167,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"leftExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"baseExpression" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 161,
+																	"name" : "self",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 21,
+																	"src" : "13515:4:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																		"typeString" : "struct MSFun.Data storage pointer"
+																	}
+																},
+																"id" : 162,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "proposal_",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 5,
+																"src" : "13515:14:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																	"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																}
+															},
+															"id" : 164,
+															"indexExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 163,
+																"name" : "_whatProposal",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 31,
+																"src" : "13530:13:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bytes32",
+																	"typeString" : "bytes32"
+																}
+															},
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"nodeType" : "IndexAccess",
+															"src" : "13515:29:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																"typeString" : "struct MSFun.ProposalData storage ref"
+															}
+														},
+														"id" : 165,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "count",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 10,
+														"src" : "13515:35:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"nodeType" : "BinaryOperation",
+													"operator" : "==",
+													"rightExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 166,
+														"name" : "_requiredSignatures",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 23,
+														"src" : "13554:19:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"src" : "13515:58:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bool",
+														"typeString" : "bool"
+													}
+												},
+												"falseBody" : null,
+												"id" : 172,
+												"nodeType" : "IfStatement",
+												"src" : "13511:111:0",
+												"trueBody" : 
+												{
+													"id" : 171,
+													"nodeType" : "Block",
+													"src" : "13575:47:0",
+													"statements" : 
+													[
+														{
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"components" : 
+																[
+																	{
+																		"argumentTypes" : null,
+																		"hexValue" : "74727565",
+																		"id" : 168,
+																		"isConstant" : false,
+																		"isLValue" : false,
+																		"isPure" : true,
+																		"kind" : "bool",
+																		"lValueRequested" : false,
+																		"nodeType" : "Literal",
+																		"src" : "13601:4:0",
+																		"subdenomination" : null,
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_bool",
+																			"typeString" : "bool"
+																		},
+																		"value" : "true"
+																	}
+																],
+																"id" : 169,
+																"isConstant" : false,
+																"isInlineArray" : false,
+																"isLValue" : false,
+																"isPure" : true,
+																"lValueRequested" : false,
+																"nodeType" : "TupleExpression",
+																"src" : "13600:6:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bool",
+																	"typeString" : "bool"
+																}
+															},
+															"functionReturnParameters" : 29,
+															"id" : 170,
+															"nodeType" : "Return",
+															"src" : "13594:12:0"
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								"id" : 175,
+								"nodeType" : "IfStatement",
+								"src" : "10943:2690:0",
+								"trueBody" : 
+								{
+									"id" : 111,
+									"nodeType" : "Block",
+									"src" : "10976:1120:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 66,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"baseExpression" : 
+														{
+															"argumentTypes" : null,
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 59,
+																"name" : "self",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 21,
+																"src" : "11055:4:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																	"typeString" : "struct MSFun.Data storage pointer"
+																}
+															},
+															"id" : 62,
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"memberName" : "proposal_",
+															"nodeType" : "MemberAccess",
+															"referencedDeclaration" : 5,
+															"src" : "11055:14:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+															}
+														},
+														"id" : 63,
+														"indexExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 61,
+															"name" : "_whatProposal",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 31,
+															"src" : "11070:13:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_bytes32",
+																"typeString" : "bytes32"
+															}
+														},
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"nodeType" : "IndexAccess",
+														"src" : "11055:29:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+															"typeString" : "struct MSFun.ProposalData storage ref"
+														}
+													},
+													"id" : 64,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : true,
+													"memberName" : "msgData",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 8,
+													"src" : "11055:37:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bytes32",
+														"typeString" : "bytes32"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 65,
+													"name" : "_msgData",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 50,
+													"src" : "11095:8:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bytes32",
+														"typeString" : "bytes32"
+													}
+												},
+												"src" : "11055:48:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bytes32",
+													"typeString" : "bytes32"
+												}
+											},
+											"id" : 67,
+											"nodeType" : "ExpressionStatement",
+											"src" : "11055:48:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 77,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"baseExpression" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 68,
+																	"name" : "self",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 21,
+																	"src" : "11182:4:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																		"typeString" : "struct MSFun.Data storage pointer"
+																	}
+																},
+																"id" : 71,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "proposal_",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 5,
+																"src" : "11182:14:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																	"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																}
+															},
+															"id" : 72,
+															"indexExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 70,
+																"name" : "_whatProposal",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 31,
+																"src" : "11197:13:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bytes32",
+																	"typeString" : "bytes32"
+																}
+															},
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"nodeType" : "IndexAccess",
+															"src" : "11182:29:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																"typeString" : "struct MSFun.ProposalData storage ref"
+															}
+														},
+														"id" : 73,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "admin",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 14,
+														"src" : "11182:35:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_address_$_t_bool_$",
+															"typeString" : "mapping(address => bool)"
+														}
+													},
+													"id" : 75,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 74,
+														"name" : "_whichAdmin",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 45,
+														"src" : "11218:11:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_address",
+															"typeString" : "address"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : true,
+													"nodeType" : "IndexAccess",
+													"src" : "11182:48:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bool",
+														"typeString" : "bool"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"hexValue" : "74727565",
+													"id" : 76,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : true,
+													"kind" : "bool",
+													"lValueRequested" : false,
+													"nodeType" : "Literal",
+													"src" : "11233:4:0",
+													"subdenomination" : null,
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bool",
+														"typeString" : "bool"
+													},
+													"value" : "true"
+												},
+												"src" : "11182:55:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bool",
+													"typeString" : "bool"
+												}
+											},
+											"id" : 78,
+											"nodeType" : "ExpressionStatement",
+											"src" : "11182:55:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 88,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"baseExpression" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 79,
+																	"name" : "self",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 21,
+																	"src" : "11479:4:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																		"typeString" : "struct MSFun.Data storage pointer"
+																	}
+																},
+																"id" : 82,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "proposal_",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 5,
+																"src" : "11479:14:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																	"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																}
+															},
+															"id" : 83,
+															"indexExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 81,
+																"name" : "_whatProposal",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 31,
+																"src" : "11494:13:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bytes32",
+																	"typeString" : "bytes32"
+																}
+															},
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"nodeType" : "IndexAccess",
+															"src" : "11479:29:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																"typeString" : "struct MSFun.ProposalData storage ref"
+															}
+														},
+														"id" : 84,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "log",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 18,
+														"src" : "11479:33:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+															"typeString" : "mapping(uint256 => address)"
+														}
+													},
+													"id" : 86,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 85,
+														"name" : "_currentCount",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 37,
+														"src" : "11513:13:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : true,
+													"nodeType" : "IndexAccess",
+													"src" : "11479:48:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 87,
+													"name" : "_whichAdmin",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 45,
+													"src" : "11530:11:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"src" : "11479:62:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"id" : 89,
+											"nodeType" : "ExpressionStatement",
+											"src" : "11479:62:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 97,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"baseExpression" : 
+														{
+															"argumentTypes" : null,
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 90,
+																"name" : "self",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 21,
+																"src" : "11615:4:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																	"typeString" : "struct MSFun.Data storage pointer"
+																}
+															},
+															"id" : 93,
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"memberName" : "proposal_",
+															"nodeType" : "MemberAccess",
+															"referencedDeclaration" : 5,
+															"src" : "11615:14:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+															}
+														},
+														"id" : 94,
+														"indexExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 92,
+															"name" : "_whatProposal",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 31,
+															"src" : "11630:13:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_bytes32",
+																"typeString" : "bytes32"
+															}
+														},
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"nodeType" : "IndexAccess",
+														"src" : "11615:29:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+															"typeString" : "struct MSFun.ProposalData storage ref"
+														}
+													},
+													"id" : 95,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : true,
+													"memberName" : "count",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 10,
+													"src" : "11615:35:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "+=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"hexValue" : "31",
+													"id" : 96,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : true,
+													"kind" : "number",
+													"lValueRequested" : false,
+													"nodeType" : "Literal",
+													"src" : "11654:1:0",
+													"subdenomination" : null,
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_rational_1_by_1",
+														"typeString" : "int_const 1"
+													},
+													"value" : "1"
+												},
+												"src" : "11615:40:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"id" : 98,
+											"nodeType" : "ExpressionStatement",
+											"src" : "11615:40:0"
+										},
+										{
+											"condition" : 
+											{
+												"argumentTypes" : null,
+												"commonType" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												},
+												"id" : 105,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftExpression" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"baseExpression" : 
+														{
+															"argumentTypes" : null,
+															"expression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 99,
+																"name" : "self",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 21,
+																"src" : "11887:4:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																	"typeString" : "struct MSFun.Data storage pointer"
+																}
+															},
+															"id" : 100,
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"memberName" : "proposal_",
+															"nodeType" : "MemberAccess",
+															"referencedDeclaration" : 5,
+															"src" : "11887:14:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+															}
+														},
+														"id" : 102,
+														"indexExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 101,
+															"name" : "_whatProposal",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 31,
+															"src" : "11902:13:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_bytes32",
+																"typeString" : "bytes32"
+															}
+														},
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"nodeType" : "IndexAccess",
+														"src" : "11887:29:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+															"typeString" : "struct MSFun.ProposalData storage ref"
+														}
+													},
+													"id" : 103,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"memberName" : "count",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 10,
+													"src" : "11887:35:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"nodeType" : "BinaryOperation",
+												"operator" : "==",
+												"rightExpression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 104,
+													"name" : "_requiredSignatures",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 23,
+													"src" : "11926:19:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"src" : "11887:58:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bool",
+													"typeString" : "bool"
+												}
+											},
+											"falseBody" : null,
+											"id" : 110,
+											"nodeType" : "IfStatement",
+											"src" : "11883:111:0",
+											"trueBody" : 
+											{
+												"id" : 109,
+												"nodeType" : "Block",
+												"src" : "11947:47:0",
+												"statements" : 
+												[
+													{
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"components" : 
+															[
+																{
+																	"argumentTypes" : null,
+																	"hexValue" : "74727565",
+																	"id" : 106,
+																	"isConstant" : false,
+																	"isLValue" : false,
+																	"isPure" : true,
+																	"kind" : "bool",
+																	"lValueRequested" : false,
+																	"nodeType" : "Literal",
+																	"src" : "11973:4:0",
+																	"subdenomination" : null,
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_bool",
+																		"typeString" : "bool"
+																	},
+																	"value" : "true"
+																}
+															],
+															"id" : 107,
+															"isConstant" : false,
+															"isInlineArray" : false,
+															"isLValue" : false,
+															"isPure" : true,
+															"lValueRequested" : false,
+															"nodeType" : "TupleExpression",
+															"src" : "11972:6:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_bool",
+																"typeString" : "bool"
+															}
+														},
+														"functionReturnParameters" : 29,
+														"id" : 108,
+														"nodeType" : "Return",
+														"src" : "11966:12:0"
+													}
+												]
+											}
+										}
+									]
+								}
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 177,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "multiSig",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 26,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 21,
+								"name" : "self",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 177,
+								"src" : "9483:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "storage",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+									"typeString" : "struct MSFun.Data"
+								},
+								"typeName" : 
+								{
+									"contractScope" : null,
+									"id" : 20,
+									"name" : "Data",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 6,
+									"src" : "9483:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+										"typeString" : "struct MSFun.Data"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 23,
+								"name" : "_requiredSignatures",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 177,
+								"src" : "9502:27:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 22,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9502:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 25,
+								"name" : "_whatFunction",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 177,
+								"src" : "9531:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 24,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9531:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "9482:71:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 29,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 28,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 177,
+								"src" : "9589:4:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bool",
+									"typeString" : "bool"
+								},
+								"typeName" : 
+								{
+									"id" : 27,
+									"name" : "bool",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "9589:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "9588:6:0"
+					},
+					"scope" : 344,
+					"src" : "9465:4175:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 243,
+						"nodeType" : "Block",
+						"src" : "13836:733:0",
+						"statements" : 
+						[
+							{
+								"assignments" : 
+								[
+									185
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 185,
+										"name" : "_whatProposal",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 244,
+										"src" : "13884:21:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"typeName" : 
+										{
+											"id" : 184,
+											"name" : "bytes32",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "13884:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 189,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 187,
+											"name" : "_whatFunction",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 181,
+											"src" : "13921:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										],
+										"id" : 186,
+										"name" : "whatProposal",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 261,
+										"src" : "13908:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
+											"typeString" : "function (bytes32) view returns (bytes32)"
+										}
+									},
+									"id" : 188,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "13908:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "13884:51:0"
+							},
+							{
+								"assignments" : [],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 191,
+										"name" : "_whichAdmin",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 244,
+										"src" : "13946:19:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										},
+										"typeName" : 
+										{
+											"id" : 190,
+											"name" : "address",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "13946:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 192,
+								"initialValue" : null,
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "13946:19:0"
+							},
+							{
+								"body" : 
+								{
+									"id" : 235,
+									"nodeType" : "Block",
+									"src" : "14257:205:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 215,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 207,
+													"name" : "_whichAdmin",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 191,
+													"src" : "14272:11:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"baseExpression" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 208,
+																	"name" : "self",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 179,
+																	"src" : "14286:4:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																		"typeString" : "struct MSFun.Data storage pointer"
+																	}
+																},
+																"id" : 209,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "proposal_",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 5,
+																"src" : "14286:14:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																	"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																}
+															},
+															"id" : 211,
+															"indexExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 210,
+																"name" : "_whatProposal",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 185,
+																"src" : "14301:13:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bytes32",
+																	"typeString" : "bytes32"
+																}
+															},
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"nodeType" : "IndexAccess",
+															"src" : "14286:29:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																"typeString" : "struct MSFun.ProposalData storage ref"
+															}
+														},
+														"id" : 212,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "log",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 18,
+														"src" : "14286:33:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+															"typeString" : "mapping(uint256 => address)"
+														}
+													},
+													"id" : 214,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 213,
+														"name" : "i",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 194,
+														"src" : "14320:1:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"nodeType" : "IndexAccess",
+													"src" : "14286:36:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"src" : "14272:50:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"id" : 216,
+											"nodeType" : "ExpressionStatement",
+											"src" : "14272:50:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 224,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"nodeType" : "UnaryOperation",
+												"operator" : "delete",
+												"prefix" : true,
+												"src" : "14337:55:0",
+												"subExpression" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"baseExpression" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 217,
+																	"name" : "self",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 179,
+																	"src" : "14344:4:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																		"typeString" : "struct MSFun.Data storage pointer"
+																	}
+																},
+																"id" : 218,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "proposal_",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 5,
+																"src" : "14344:14:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																	"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																}
+															},
+															"id" : 220,
+															"indexExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 219,
+																"name" : "_whatProposal",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 185,
+																"src" : "14359:13:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bytes32",
+																	"typeString" : "bytes32"
+																}
+															},
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"nodeType" : "IndexAccess",
+															"src" : "14344:29:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																"typeString" : "struct MSFun.ProposalData storage ref"
+															}
+														},
+														"id" : 221,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "admin",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 14,
+														"src" : "14344:35:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_address_$_t_bool_$",
+															"typeString" : "mapping(address => bool)"
+														}
+													},
+													"id" : 223,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 222,
+														"name" : "_whichAdmin",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 191,
+														"src" : "14380:11:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_address",
+															"typeString" : "address"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : true,
+													"nodeType" : "IndexAccess",
+													"src" : "14344:48:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bool",
+														"typeString" : "bool"
+													}
+												},
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_tuple$__$",
+													"typeString" : "tuple()"
+												}
+											},
+											"id" : 225,
+											"nodeType" : "ExpressionStatement",
+											"src" : "14337:55:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 233,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"nodeType" : "UnaryOperation",
+												"operator" : "delete",
+												"prefix" : true,
+												"src" : "14407:43:0",
+												"subExpression" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"baseExpression" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"id" : 226,
+																	"name" : "self",
+																	"nodeType" : "Identifier",
+																	"overloadedDeclarations" : [],
+																	"referencedDeclaration" : 179,
+																	"src" : "14414:4:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																		"typeString" : "struct MSFun.Data storage pointer"
+																	}
+																},
+																"id" : 227,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "proposal_",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 5,
+																"src" : "14414:14:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+																	"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+																}
+															},
+															"id" : 229,
+															"indexExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 228,
+																"name" : "_whatProposal",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 185,
+																"src" : "14429:13:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_bytes32",
+																	"typeString" : "bytes32"
+																}
+															},
+															"isConstant" : false,
+															"isLValue" : true,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"nodeType" : "IndexAccess",
+															"src" : "14414:29:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+																"typeString" : "struct MSFun.ProposalData storage ref"
+															}
+														},
+														"id" : 230,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "log",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 18,
+														"src" : "14414:33:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+															"typeString" : "mapping(uint256 => address)"
+														}
+													},
+													"id" : 232,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 231,
+														"name" : "i",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 194,
+														"src" : "14448:1:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : true,
+													"nodeType" : "IndexAccess",
+													"src" : "14414:36:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_tuple$__$",
+													"typeString" : "tuple()"
+												}
+											},
+											"id" : 234,
+											"nodeType" : "ExpressionStatement",
+											"src" : "14407:43:0"
+										}
+									]
+								},
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 203,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 197,
+										"name" : "i",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 194,
+										"src" : "14211:1:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "<",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 198,
+													"name" : "self",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 179,
+													"src" : "14215:4:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+														"typeString" : "struct MSFun.Data storage pointer"
+													}
+												},
+												"id" : 199,
+												"isConstant" : false,
+												"isLValue" : true,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "proposal_",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : 5,
+												"src" : "14215:14:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+													"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+												}
+											},
+											"id" : 201,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 200,
+												"name" : "_whatProposal",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 185,
+												"src" : "14230:13:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bytes32",
+													"typeString" : "bytes32"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "14215:29:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+												"typeString" : "struct MSFun.ProposalData storage ref"
+											}
+										},
+										"id" : 202,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "count",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 10,
+										"src" : "14215:35:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "14211:39:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"id" : 236,
+								"initializationExpression" : 
+								{
+									"assignments" : 
+									[
+										194
+									],
+									"declarations" : 
+									[
+										{
+											"constant" : false,
+											"id" : 194,
+											"name" : "i",
+											"nodeType" : "VariableDeclaration",
+											"scope" : 244,
+											"src" : "14198:9:0",
+											"stateVariable" : false,
+											"storageLocation" : "default",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											"typeName" : 
+											{
+												"id" : 193,
+												"name" : "uint256",
+												"nodeType" : "ElementaryTypeName",
+												"src" : "14198:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"value" : null,
+											"visibility" : "internal"
+										}
+									],
+									"id" : 196,
+									"initialValue" : 
+									{
+										"argumentTypes" : null,
+										"hexValue" : "30",
+										"id" : 195,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : true,
+										"kind" : "number",
+										"lValueRequested" : false,
+										"nodeType" : "Literal",
+										"src" : "14208:1:0",
+										"subdenomination" : null,
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_rational_0_by_1",
+											"typeString" : "int_const 0"
+										},
+										"value" : "0"
+									},
+									"nodeType" : "VariableDeclarationStatement",
+									"src" : "14198:11:0"
+								},
+								"loopExpression" : 
+								{
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 205,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "UnaryOperation",
+										"operator" : "++",
+										"prefix" : false,
+										"src" : "14252:3:0",
+										"subExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 204,
+											"name" : "i",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 194,
+											"src" : "14252:1:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"id" : 206,
+									"nodeType" : "ExpressionStatement",
+									"src" : "14252:3:0"
+								},
+								"nodeType" : "ForStatement",
+								"src" : "14193:269:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 241,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "UnaryOperation",
+									"operator" : "delete",
+									"prefix" : true,
+									"src" : "14525:36:0",
+									"subExpression" : 
+									{
+										"argumentTypes" : null,
+										"baseExpression" : 
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 237,
+												"name" : "self",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 179,
+												"src" : "14532:4:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+													"typeString" : "struct MSFun.Data storage pointer"
+												}
+											},
+											"id" : 238,
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "proposal_",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : 5,
+											"src" : "14532:14:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+												"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+											}
+										},
+										"id" : 240,
+										"indexExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 239,
+											"name" : "_whatProposal",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 185,
+											"src" : "14547:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"nodeType" : "IndexAccess",
+										"src" : "14532:29:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+											"typeString" : "struct MSFun.ProposalData storage ref"
+										}
+									},
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 242,
+								"nodeType" : "ExpressionStatement",
+								"src" : "14525:36:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 244,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "deleteProposal",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 182,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 179,
+								"name" : "self",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 244,
+								"src" : "13771:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "storage",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+									"typeString" : "struct MSFun.Data"
+								},
+								"typeName" : 
+								{
+									"contractScope" : null,
+									"id" : 178,
+									"name" : "Data",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 6,
+									"src" : "13771:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+										"typeString" : "struct MSFun.Data"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 181,
+								"name" : "_whatFunction",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 244,
+								"src" : "13790:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 180,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "13790:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "13770:42:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 183,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "13836:0:0"
+					},
+					"scope" : 344,
+					"src" : "13747:822:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 260,
+						"nodeType" : "Block",
+						"src" : "14861:74:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"components" : 
+									[
+										{
+											"argumentTypes" : null,
+											"arguments" : 
+											[
+												{
+													"argumentTypes" : null,
+													"arguments" : 
+													[
+														{
+															"argumentTypes" : null,
+															"id" : 254,
+															"name" : "_whatFunction",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 246,
+															"src" : "14906:13:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_bytes32",
+																"typeString" : "bytes32"
+															}
+														},
+														{
+															"argumentTypes" : null,
+															"id" : 255,
+															"name" : "this",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 372,
+															"src" : "14920:4:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_contract$_MSFun_$344",
+																"typeString" : "library MSFun"
+															}
+														}
+													],
+													"expression" : 
+													{
+														"argumentTypes" : 
+														[
+															{
+																"typeIdentifier" : "t_bytes32",
+																"typeString" : "bytes32"
+															},
+															{
+																"typeIdentifier" : "t_contract$_MSFun_$344",
+																"typeString" : "library MSFun"
+															}
+														],
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 252,
+															"name" : "abi",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 346,
+															"src" : "14889:3:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_magic_abi",
+																"typeString" : "abi"
+															}
+														},
+														"id" : 253,
+														"isConstant" : false,
+														"isLValue" : false,
+														"isPure" : true,
+														"lValueRequested" : false,
+														"memberName" : "encodePacked",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : null,
+														"src" : "14889:16:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+															"typeString" : "function () pure returns (bytes memory)"
+														}
+													},
+													"id" : 256,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : false,
+													"kind" : "functionCall",
+													"lValueRequested" : false,
+													"names" : [],
+													"nodeType" : "FunctionCall",
+													"src" : "14889:36:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bytes_memory_ptr",
+														"typeString" : "bytes memory"
+													}
+												}
+											],
+											"expression" : 
+											{
+												"argumentTypes" : 
+												[
+													{
+														"typeIdentifier" : "t_bytes_memory_ptr",
+														"typeString" : "bytes memory"
+													}
+												],
+												"id" : 251,
+												"name" : "keccak256",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 353,
+												"src" : "14879:9:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_function_sha3_pure$__$returns$_t_bytes32_$",
+													"typeString" : "function () pure returns (bytes32)"
+												}
+											},
+											"id" : 257,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"kind" : "functionCall",
+											"lValueRequested" : false,
+											"names" : [],
+											"nodeType" : "FunctionCall",
+											"src" : "14879:47:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"id" : 258,
+									"isConstant" : false,
+									"isInlineArray" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "TupleExpression",
+									"src" : "14878:49:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"functionReturnParameters" : 250,
+								"id" : 259,
+								"nodeType" : "Return",
+								"src" : "14872:55:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 261,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "whatProposal",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 247,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 246,
+								"name" : "_whatFunction",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 261,
+								"src" : "14776:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 245,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "14776:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "14775:23:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 250,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 249,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 261,
+								"src" : "14847:7:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 248,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "14847:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "14846:9:0"
+					},
+					"scope" : 344,
+					"src" : "14754:181:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "private"
+				},
+				{
+					"body" : 
+					{
+						"id" : 283,
+						"nodeType" : "Block",
+						"src" : "15348:127:0",
+						"statements" : 
+						[
+							{
+								"assignments" : 
+								[
+									271
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 271,
+										"name" : "_whatProposal",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 284,
+										"src" : "15359:21:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"typeName" : 
+										{
+											"id" : 270,
+											"name" : "bytes32",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "15359:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 275,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 273,
+											"name" : "_whatFunction",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 265,
+											"src" : "15396:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										],
+										"id" : 272,
+										"name" : "whatProposal",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 261,
+										"src" : "15383:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
+											"typeString" : "function (bytes32) view returns (bytes32)"
+										}
+									},
+									"id" : 274,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "15383:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "15359:51:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"components" : 
+									[
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"baseExpression" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 276,
+														"name" : "self",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 263,
+														"src" : "15429:4:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+															"typeString" : "struct MSFun.Data storage pointer"
+														}
+													},
+													"id" : 277,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"memberName" : "proposal_",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 5,
+													"src" : "15429:14:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+														"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+													}
+												},
+												"id" : 279,
+												"indexExpression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 278,
+													"name" : "_whatProposal",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 271,
+													"src" : "15444:13:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bytes32",
+														"typeString" : "bytes32"
+													}
+												},
+												"isConstant" : false,
+												"isLValue" : true,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"nodeType" : "IndexAccess",
+												"src" : "15429:29:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+													"typeString" : "struct MSFun.ProposalData storage ref"
+												}
+											},
+											"id" : 280,
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "msgData",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : 8,
+											"src" : "15429:37:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"id" : 281,
+									"isConstant" : false,
+									"isInlineArray" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "TupleExpression",
+									"src" : "15428:39:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"functionReturnParameters" : 269,
+								"id" : 282,
+								"nodeType" : "Return",
+								"src" : "15421:46:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 284,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "checkMsgData",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 266,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 263,
+								"name" : "self",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 284,
+								"src" : "15233:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "storage",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+									"typeString" : "struct MSFun.Data"
+								},
+								"typeName" : 
+								{
+									"contractScope" : null,
+									"id" : 262,
+									"name" : "Data",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 6,
+									"src" : "15233:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+										"typeString" : "struct MSFun.Data"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 265,
+								"name" : "_whatFunction",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 284,
+								"src" : "15252:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 264,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "15252:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "15232:42:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 269,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 268,
+								"name" : "msg_data",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 284,
+								"src" : "15325:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 267,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "15325:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "15324:18:0"
+					},
+					"scope" : 344,
+					"src" : "15210:265:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 306,
+						"nodeType" : "Block",
+						"src" : "15687:125:0",
+						"statements" : 
+						[
+							{
+								"assignments" : 
+								[
+									294
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 294,
+										"name" : "_whatProposal",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 307,
+										"src" : "15698:21:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"typeName" : 
+										{
+											"id" : 293,
+											"name" : "bytes32",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "15698:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 298,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 296,
+											"name" : "_whatFunction",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 288,
+											"src" : "15735:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										],
+										"id" : 295,
+										"name" : "whatProposal",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 261,
+										"src" : "15722:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
+											"typeString" : "function (bytes32) view returns (bytes32)"
+										}
+									},
+									"id" : 297,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "15722:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "15698:51:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"components" : 
+									[
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"baseExpression" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 299,
+														"name" : "self",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 286,
+														"src" : "15768:4:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+															"typeString" : "struct MSFun.Data storage pointer"
+														}
+													},
+													"id" : 300,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"memberName" : "proposal_",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 5,
+													"src" : "15768:14:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+														"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+													}
+												},
+												"id" : 302,
+												"indexExpression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 301,
+													"name" : "_whatProposal",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 294,
+													"src" : "15783:13:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_bytes32",
+														"typeString" : "bytes32"
+													}
+												},
+												"isConstant" : false,
+												"isLValue" : true,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"nodeType" : "IndexAccess",
+												"src" : "15768:29:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+													"typeString" : "struct MSFun.ProposalData storage ref"
+												}
+											},
+											"id" : 303,
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "count",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : 10,
+											"src" : "15768:35:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										}
+									],
+									"id" : 304,
+									"isConstant" : false,
+									"isInlineArray" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "TupleExpression",
+									"src" : "15767:37:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"functionReturnParameters" : 292,
+								"id" : 305,
+								"nodeType" : "Return",
+								"src" : "15760:44:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 307,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "checkCount",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 289,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 286,
+								"name" : "self",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 307,
+								"src" : "15565:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "storage",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+									"typeString" : "struct MSFun.Data"
+								},
+								"typeName" : 
+								{
+									"contractScope" : null,
+									"id" : 285,
+									"name" : "Data",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 6,
+									"src" : "15565:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+										"typeString" : "struct MSFun.Data"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 288,
+								"name" : "_whatFunction",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 307,
+								"src" : "15584:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 287,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "15584:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "15564:42:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 292,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 291,
+								"name" : "signature_count",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 307,
+								"src" : "15657:23:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 290,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "15657:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "15656:25:0"
+					},
+					"scope" : 344,
+					"src" : "15544:268:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 342,
+						"nodeType" : "Block",
+						"src" : "16046:211:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"commonType" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											"id" : 321,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"leftExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 319,
+												"name" : "_signer",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 313,
+												"src" : "16065:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"nodeType" : "BinaryOperation",
+											"operator" : ">",
+											"rightExpression" : 
+											{
+												"argumentTypes" : null,
+												"hexValue" : "30",
+												"id" : 320,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : true,
+												"kind" : "number",
+												"lValueRequested" : false,
+												"nodeType" : "Literal",
+												"src" : "16075:1:0",
+												"subdenomination" : null,
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_rational_0_by_1",
+													"typeString" : "int_const 0"
+												},
+												"value" : "0"
+											},
+											"src" : "16065:11:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"hexValue" : "4d5346756e20636865636b5369676e6572206661696c6564202d2030206e6f7420616c6c6f776564",
+											"id" : 322,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : true,
+											"kind" : "string",
+											"lValueRequested" : false,
+											"nodeType" : "Literal",
+											"src" : "16078:42:0",
+											"subdenomination" : null,
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_stringliteral_099e5489ee085929a343c79ecccda5093f974de4c3766a4aa3dba52ad255ce25",
+												"typeString" : "literal_string \"MSFun checkSigner failed - 0 not allowed\""
+											},
+											"value" : "MSFun checkSigner failed - 0 not allowed"
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											},
+											{
+												"typeIdentifier" : "t_stringliteral_099e5489ee085929a343c79ecccda5093f974de4c3766a4aa3dba52ad255ce25",
+												"typeString" : "literal_string \"MSFun checkSigner failed - 0 not allowed\""
+											}
+										],
+										"id" : 318,
+										"name" : "require",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : 
+										[
+											362,
+											363
+										],
+										"referencedDeclaration" : 363,
+										"src" : "16057:7:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+											"typeString" : "function (bool,string memory) pure"
+										}
+									},
+									"id" : 323,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "16057:64:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 324,
+								"nodeType" : "ExpressionStatement",
+								"src" : "16057:64:0"
+							},
+							{
+								"assignments" : 
+								[
+									326
+								],
+								"declarations" : 
+								[
+									{
+										"constant" : false,
+										"id" : 326,
+										"name" : "_whatProposal",
+										"nodeType" : "VariableDeclaration",
+										"scope" : 343,
+										"src" : "16132:21:0",
+										"stateVariable" : false,
+										"storageLocation" : "default",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bytes32",
+											"typeString" : "bytes32"
+										},
+										"typeName" : 
+										{
+											"id" : 325,
+											"name" : "bytes32",
+											"nodeType" : "ElementaryTypeName",
+											"src" : "16132:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										},
+										"value" : null,
+										"visibility" : "internal"
+									}
+								],
+								"id" : 330,
+								"initialValue" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 328,
+											"name" : "_whatFunction",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 311,
+											"src" : "16169:13:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bytes32",
+												"typeString" : "bytes32"
+											}
+										],
+										"id" : 327,
+										"name" : "whatProposal",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 261,
+										"src" : "16156:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_internal_view$_t_bytes32_$returns$_t_bytes32_$",
+											"typeString" : "function (bytes32) view returns (bytes32)"
+										}
+									},
+									"id" : 329,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "16156:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"nodeType" : "VariableDeclarationStatement",
+								"src" : "16132:51:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"components" : 
+									[
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 331,
+															"name" : "self",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 309,
+															"src" : "16202:4:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+																"typeString" : "struct MSFun.Data storage pointer"
+															}
+														},
+														"id" : 332,
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"memberName" : "proposal_",
+														"nodeType" : "MemberAccess",
+														"referencedDeclaration" : 5,
+														"src" : "16202:14:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_bytes32_$_t_struct$_ProposalData_$19_storage_$",
+															"typeString" : "mapping(bytes32 => struct MSFun.ProposalData storage ref)"
+														}
+													},
+													"id" : 334,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 333,
+														"name" : "_whatProposal",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 326,
+														"src" : "16217:13:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_bytes32",
+															"typeString" : "bytes32"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"nodeType" : "IndexAccess",
+													"src" : "16202:29:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_struct$_ProposalData_$19_storage",
+														"typeString" : "struct MSFun.ProposalData storage ref"
+													}
+												},
+												"id" : 335,
+												"isConstant" : false,
+												"isLValue" : true,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "log",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : 18,
+												"src" : "16202:33:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_address_$",
+													"typeString" : "mapping(uint256 => address)"
+												}
+											},
+											"id" : 339,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"commonType" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												},
+												"id" : 338,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftExpression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 336,
+													"name" : "_signer",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 313,
+													"src" : "16236:7:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"nodeType" : "BinaryOperation",
+												"operator" : "-",
+												"rightExpression" : 
+												{
+													"argumentTypes" : null,
+													"hexValue" : "31",
+													"id" : 337,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : true,
+													"kind" : "number",
+													"lValueRequested" : false,
+													"nodeType" : "Literal",
+													"src" : "16246:1:0",
+													"subdenomination" : null,
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_rational_1_by_1",
+														"typeString" : "int_const 1"
+													},
+													"value" : "1"
+												},
+												"src" : "16236:11:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "16202:46:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"id" : 340,
+									"isConstant" : false,
+									"isInlineArray" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "TupleExpression",
+									"src" : "16201:48:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"functionReturnParameters" : 317,
+								"id" : 341,
+								"nodeType" : "Return",
+								"src" : "16194:55:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 343,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "checkSigner",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 314,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 309,
+								"name" : "self",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 343,
+								"src" : "15916:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "storage",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+									"typeString" : "struct MSFun.Data"
+								},
+								"typeName" : 
+								{
+									"contractScope" : null,
+									"id" : 308,
+									"name" : "Data",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 6,
+									"src" : "15916:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_struct$_Data_$6_storage_ptr",
+										"typeString" : "struct MSFun.Data"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 311,
+								"name" : "_whatFunction",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 343,
+								"src" : "15935:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bytes32",
+									"typeString" : "bytes32"
+								},
+								"typeName" : 
+								{
+									"id" : 310,
+									"name" : "bytes32",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "15935:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bytes32",
+										"typeString" : "bytes32"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 313,
+								"name" : "_signer",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 343,
+								"src" : "15958:15:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 312,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "15958:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "15915:59:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 317,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 316,
+								"name" : "signer",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 343,
+								"src" : "16025:14:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 315,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "16025:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "16024:16:0"
+					},
+					"scope" : 344,
+					"src" : "15894:363:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "internal"
+				}
+			],
+			"scope" : 345,
+			"src" : "8657:7603:0"
+		}
+	],
+	"src" : "0:16260:0"
+}

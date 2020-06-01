@@ -1,0 +1,758 @@
+pragma solidity ^0.4.21;
+
+
+/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/179
+ */
+contract ERC20Basic {
+  function totalSupply() public view returns (uint256);
+  function balanceOf(address who) public view returns (uint256);
+  function transfer(address to, uint256 value) public returns (bool);
+  event Transfer(address indexed from, address indexed to, uint256 value);
+}
+
+
+
+/**
+ * @title Ownable
+ * @dev The Ownable contract has an owner address, and provides basic authorization control
+ * functions, this simplifies the implementation of "user permissions".
+ */
+contract Ownable {
+  address public owner;
+
+
+  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+
+  /**
+   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+   * account.
+   */
+  function Ownable() public {
+    owner = msg.sender;
+  }
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
+  modifier onlyOwner() {
+    require(msg.sender == owner);
+    _;
+  }
+
+  /**
+   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+   * @param newOwner The address to transfer ownership to.
+   */
+  function transferOwnership(address newOwner) public onlyOwner {
+    require(newOwner != address(0));
+    emit OwnershipTransferred(owner, newOwner);
+    owner = newOwner;
+  }
+
+}
+
+
+library DateTime {
+        /*
+         *  Date and Time utilities for ethereum contracts
+         *
+         */
+        struct _DateTime {
+                uint16 year;
+                uint8 month;
+                uint8 day;
+                uint8 hour;
+                uint8 minute;
+                uint8 second;
+                uint8 weekday;
+        }
+
+        uint constant DAY_IN_SECONDS = 86400;
+        uint constant YEAR_IN_SECONDS = 31536000;
+        uint constant LEAP_YEAR_IN_SECONDS = 31622400;
+
+        uint constant HOUR_IN_SECONDS = 3600;
+        uint constant MINUTE_IN_SECONDS = 60;
+
+        uint16 constant ORIGIN_YEAR = 1970;
+
+        function isLeapYear(uint16 year) public pure returns (bool) {
+                if (year % 4 != 0) {
+                        return false;
+                }
+                if (year % 100 != 0) {
+                        return true;
+                }
+                if (year % 400 != 0) {
+                        return false;
+                }
+                return true;
+        }
+
+        function leapYearsBefore(uint year) public pure returns (uint) {
+                year -= 1;
+                return year / 4 - year / 100 + year / 400;
+        }
+
+        function getDaysInMonth(uint8 month, uint16 year) public pure returns (uint8) {
+                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                        return 31;
+                }
+                else if (month == 4 || month == 6 || month == 9 || month == 11) {
+                        return 30;
+                }
+                else if (isLeapYear(year)) {
+                        return 29;
+                }
+                else {
+                        return 28;
+                }
+        }
+
+        function parseTimestamp(uint timestamp) internal pure returns (_DateTime dt) {
+                uint secondsAccountedFor = 0;
+                uint buf;
+                uint8 i;
+
+                // Year
+                dt.year = getYear(timestamp);
+                buf = leapYearsBefore(dt.year) - leapYearsBefore(ORIGIN_YEAR);
+
+                secondsAccountedFor += LEAP_YEAR_IN_SECONDS * buf;
+                secondsAccountedFor += YEAR_IN_SECONDS * (dt.year - ORIGIN_YEAR - buf);
+
+                // Month
+                uint secondsInMonth;
+                for (i = 1; i <= 12; i++) {
+                        secondsInMonth = DAY_IN_SECONDS * getDaysInMonth(i, dt.year);
+                        if (secondsInMonth + secondsAccountedFor > timestamp) {
+                                dt.month = i;
+                                break;
+                        }
+                        secondsAccountedFor += secondsInMonth;
+                }
+
+                // Day
+                for (i = 1; i <= getDaysInMonth(dt.month, dt.year); i++) {
+                        if (DAY_IN_SECONDS + secondsAccountedFor > timestamp) {
+                                dt.day = i;
+                                break;
+                        }
+                        secondsAccountedFor += DAY_IN_SECONDS;
+                }
+
+                // Hour
+                dt.hour = getHour(timestamp);
+
+                // Minute
+                dt.minute = getMinute(timestamp);
+
+                // Second
+                dt.second = getSecond(timestamp);
+
+                // Day of week.
+                dt.weekday = getWeekday(timestamp);
+        }
+
+        function getYear(uint timestamp) public pure returns (uint16) {
+                uint secondsAccountedFor = 0;
+                uint16 year;
+                uint numLeapYears;
+
+                // Year
+                year = uint16(ORIGIN_YEAR + timestamp / YEAR_IN_SECONDS);
+                numLeapYears = leapYearsBefore(year) - leapYearsBefore(ORIGIN_YEAR);
+
+                secondsAccountedFor += LEAP_YEAR_IN_SECONDS * numLeapYears;
+                secondsAccountedFor += YEAR_IN_SECONDS * (year - ORIGIN_YEAR - numLeapYears);
+
+                while (secondsAccountedFor > timestamp) {
+                        if (isLeapYear(uint16(year - 1))) {
+                                secondsAccountedFor -= LEAP_YEAR_IN_SECONDS;
+                        }
+                        else {
+                                secondsAccountedFor -= YEAR_IN_SECONDS;
+                        }
+                        year -= 1;
+                }
+                return year;
+        }
+
+        function getMonth(uint timestamp) public pure returns (uint8) {
+                return parseTimestamp(timestamp).month;
+        }
+
+        function getDay(uint timestamp) public pure returns (uint8) {
+                return parseTimestamp(timestamp).day;
+        }
+
+        function getHour(uint timestamp) public pure returns (uint8) {
+                return uint8((timestamp / 60 / 60) % 24);
+        }
+
+        function getMinute(uint timestamp) public pure returns (uint8) {
+                return uint8((timestamp / 60) % 60);
+        }
+
+        function getSecond(uint timestamp) public pure returns (uint8) {
+                return uint8(timestamp % 60);
+        }
+
+        function getWeekday(uint timestamp) public pure returns (uint8) {
+                return uint8((timestamp / DAY_IN_SECONDS + 4) % 7);
+        }
+
+        function toTimestamp(uint16 year, uint8 month, uint8 day) public pure returns (uint timestamp) {
+                return toTimestamp(year, month, day, 0, 0, 0);
+        }
+
+        function toTimestamp(uint16 year, uint8 month, uint8 day, uint8 hour) public pure returns (uint timestamp) {
+                return toTimestamp(year, month, day, hour, 0, 0);
+        }
+
+        function toTimestamp(uint16 year, uint8 month, uint8 day, uint8 hour, uint8 minute) public pure returns (uint timestamp) {
+                return toTimestamp(year, month, day, hour, minute, 0);
+        }
+
+        function toTimestamp(uint16 year, uint8 month, uint8 day, uint8 hour, uint8 minute, uint8 second) public pure returns (uint timestamp) {
+                uint16 i;
+
+                // Year
+                for (i = ORIGIN_YEAR; i < year; i++) {
+                        if (isLeapYear(i)) {
+                                timestamp += LEAP_YEAR_IN_SECONDS;
+                        }
+                        else {
+                                timestamp += YEAR_IN_SECONDS;
+                        }
+                }
+
+                // Month
+                uint8[12] memory monthDayCounts;
+                monthDayCounts[0] = 31;
+                if (isLeapYear(year)) {
+                        monthDayCounts[1] = 29;
+                }
+                else {
+                        monthDayCounts[1] = 28;
+                }
+                monthDayCounts[2] = 31;
+                monthDayCounts[3] = 30;
+                monthDayCounts[4] = 31;
+                monthDayCounts[5] = 30;
+                monthDayCounts[6] = 31;
+                monthDayCounts[7] = 31;
+                monthDayCounts[8] = 30;
+                monthDayCounts[9] = 31;
+                monthDayCounts[10] = 30;
+                monthDayCounts[11] = 31;
+
+                for (i = 1; i < month; i++) {
+                        timestamp += DAY_IN_SECONDS * monthDayCounts[i - 1];
+                }
+
+                // Day
+                timestamp += DAY_IN_SECONDS * (day - 1);
+
+                // Hour
+                timestamp += HOUR_IN_SECONDS * (hour);
+
+                // Minute
+                timestamp += MINUTE_IN_SECONDS * (minute);
+
+                // Second
+                timestamp += second;
+
+                return timestamp;
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @title SafeMath
+ * @dev Math operations with safety checks that throw on error
+ */
+library SafeMath {
+
+  /**
+  * @dev Multiplies two numbers, throws on overflow.
+  */
+  function mul(uint256 a, uint256 b) internal pure returns (uint256 c) {
+    if (a == 0) {
+      return 0;
+    }
+    c = a * b;
+    assert(c / a == b);
+    return c;
+  }
+
+  /**
+  * @dev Integer division of two numbers, truncating the quotient.
+  */
+  function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    // assert(b > 0); // Solidity automatically throws when dividing by 0
+    // uint256 c = a / b;
+    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+    return a / b;
+  }
+
+  /**
+  * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    assert(b <= a);
+    return a - b;
+  }
+
+  /**
+  * @dev Adds two numbers, throws on overflow.
+  */
+  function add(uint256 a, uint256 b) internal pure returns (uint256 c) {
+    c = a + b;
+    assert(c >= a);
+    return c;
+  }
+}
+
+
+
+/**
+ * @title Basic token
+ * @dev Basic version of StandardToken, with no allowances.
+ */
+contract BasicToken is ERC20Basic {
+  using SafeMath for uint256;
+
+  mapping(address => uint256) balances;
+
+  uint256 totalSupply_;
+
+  /**
+  * @dev total number of tokens in existence
+  */
+  function totalSupply() public view returns (uint256) {
+    return totalSupply_;
+  }
+
+  /**
+  * @dev transfer token for a specified address
+  * @param _to The address to transfer to.
+  * @param _value The amount to be transferred.
+  */
+  function transfer(address _to, uint256 _value) public returns (bool) {
+    require(_to != address(0));
+    require(_value <= balances[msg.sender]);
+
+    balances[msg.sender] = balances[msg.sender].sub(_value);
+    balances[_to] = balances[_to].add(_value);
+    emit Transfer(msg.sender, _to, _value);
+    return true;
+  }
+
+  /**
+  * @dev Gets the balance of the specified address.
+  * @param _owner The address to query the the balance of.
+  * @return An uint256 representing the amount owned by the passed address.
+  */
+  function balanceOf(address _owner) public view returns (uint256) {
+    return balances[_owner];
+  }
+
+}
+
+
+
+
+
+
+/**
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
+ */
+contract ERC20 is ERC20Basic {
+  function allowance(address owner, address spender) public view returns (uint256);
+  function transferFrom(address from, address to, uint256 value) public returns (bool);
+  function approve(address spender, uint256 value) public returns (bool);
+  event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+
+
+/**
+ * @title Standard ERC20 token
+ *
+ * @dev Implementation of the basic standard token.
+ * @dev https://github.com/ethereum/EIPs/issues/20
+ * @dev Based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
+ */
+contract StandardToken is ERC20, BasicToken {
+
+  mapping (address => mapping (address => uint256)) internal allowed;
+
+
+  /**
+   * @dev Transfer tokens from one address to another
+   * @param _from address The address which you want to send tokens from
+   * @param _to address The address which you want to transfer to
+   * @param _value uint256 the amount of tokens to be transferred
+   */
+  function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+    require(_to != address(0));
+    require(_value <= balances[_from]);
+    require(_value <= allowed[_from][msg.sender]);
+
+    balances[_from] = balances[_from].sub(_value);
+    balances[_to] = balances[_to].add(_value);
+    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+    emit Transfer(_from, _to, _value);
+    return true;
+  }
+
+  /**
+   * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
+   *
+   * Beware that changing an allowance with this method brings the risk that someone may use both the old
+   * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
+   * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
+   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+   * @param _spender The address which will spend the funds.
+   * @param _value The amount of tokens to be spent.
+   */
+  function approve(address _spender, uint256 _value) public returns (bool) {
+    allowed[msg.sender][_spender] = _value;
+    emit Approval(msg.sender, _spender, _value);
+    return true;
+  }
+
+  /**
+   * @dev Function to check the amount of tokens that an owner allowed to a spender.
+   * @param _owner address The address which owns the funds.
+   * @param _spender address The address which will spend the funds.
+   * @return A uint256 specifying the amount of tokens still available for the spender.
+   */
+  function allowance(address _owner, address _spender) public view returns (uint256) {
+    return allowed[_owner][_spender];
+  }
+
+  /**
+   * @dev Increase the amount of tokens that an owner allowed to a spender.
+   *
+   * approve should be called when allowed[_spender] == 0. To increment
+   * allowed value is better to use this function to avoid 2 calls (and wait until
+   * the first transaction is mined)
+   * From MonolithDAO Token.sol
+   * @param _spender The address which will spend the funds.
+   * @param _addedValue The amount of tokens to increase the allowance by.
+   */
+  function increaseApproval(address _spender, uint _addedValue) public returns (bool) {
+    allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);
+    emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+    return true;
+  }
+
+  /**
+   * @dev Decrease the amount of tokens that an owner allowed to a spender.
+   *
+   * approve should be called when allowed[_spender] == 0. To decrement
+   * allowed value is better to use this function to avoid 2 calls (and wait until
+   * the first transaction is mined)
+   * From MonolithDAO Token.sol
+   * @param _spender The address which will spend the funds.
+   * @param _subtractedValue The amount of tokens to decrease the allowance by.
+   */
+  function decreaseApproval(address _spender, uint _subtractedValue) public returns (bool) {
+    uint oldValue = allowed[msg.sender][_spender];
+    if (_subtractedValue > oldValue) {
+      allowed[msg.sender][_spender] = 0;
+    } else {
+      allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);
+    }
+    emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+    return true;
+  }
+
+}
+
+
+
+
+
+
+/**
+ * @title Burnable Token
+ * @dev Token that can be irreversibly burned (destroyed).
+ */
+contract BurnableToken is BasicToken {
+
+  event Burn(address indexed burner, uint256 value);
+
+  /**
+   * @dev Burns a specific amount of tokens.
+   * @param _value The amount of token to be burned.
+   */
+  function burn(uint256 _value) public returns (bool) {
+    _burn(msg.sender, _value);
+    return true;
+  }
+
+  function _burn(address _who, uint256 _value) internal {
+    require(_value <= balances[_who]);
+    // no need to require value <= totalSupply, since that would imply the
+    // sender's balance is greater than the totalSupply, which *should* be an assertion failure
+
+    balances[_who] = balances[_who].sub(_value);
+    totalSupply_ = totalSupply_.sub(_value);
+    emit Burn(_who, _value);
+    emit Transfer(_who, address(0), _value);
+  }
+}
+
+
+
+
+/**
+ * @title Helps contracts guard agains reentrancy attacks.
+ * @author Remco Bloemen <<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3c4e59515f537c0e">[email protected]</a>π.com&gt;&#13;
+ * @notice If you mark a function `nonReentrant`, you should also&#13;
+ * mark it `external`.&#13;
+ */&#13;
+contract ReentrancyGuard {&#13;
+&#13;
+  /**&#13;
+   * @dev We use a single lock for the whole contract.&#13;
+   */&#13;
+  bool private reentrancyLock = false;&#13;
+&#13;
+  /**&#13;
+   * @dev Prevents a contract from calling itself, directly or indirectly.&#13;
+   * @notice If you mark a function `nonReentrant`, you should also&#13;
+   * mark it `external`. Calling one nonReentrant function from&#13;
+   * another is not supported. Instead, you can implement a&#13;
+   * `private` function doing the actual work, and a `external`&#13;
+   * wrapper marked as `nonReentrant`.&#13;
+   */&#13;
+  modifier nonReentrant() {&#13;
+    require(!reentrancyLock);&#13;
+    reentrancyLock = true;&#13;
+    _;&#13;
+    reentrancyLock = false;&#13;
+  }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+/**&#13;
+ * @title Claimable&#13;
+ * @dev Extension for the Ownable contract, where the ownership needs to be claimed.&#13;
+ * This allows the new owner to accept the transfer.&#13;
+ */&#13;
+contract Claimable is Ownable {&#13;
+  address public pendingOwner;&#13;
+&#13;
+  /**&#13;
+   * @dev Modifier throws if called by any account other than the pendingOwner.&#13;
+   */&#13;
+  modifier onlyPendingOwner() {&#13;
+    require(msg.sender == pendingOwner);&#13;
+    _;&#13;
+  }&#13;
+&#13;
+  /**&#13;
+   * @dev Allows the current owner to set the pendingOwner address.&#13;
+   * @param newOwner The address to transfer ownership to.&#13;
+   */&#13;
+  function transferOwnership(address newOwner) onlyOwner public {&#13;
+    pendingOwner = newOwner;&#13;
+  }&#13;
+&#13;
+  /**&#13;
+   * @dev Allows the pendingOwner address to finalize the transfer.&#13;
+   */&#13;
+  function claimOwnership() onlyPendingOwner public {&#13;
+    emit OwnershipTransferred(owner, pendingOwner);&#13;
+    owner = pendingOwner;&#13;
+    pendingOwner = address(0);&#13;
+  }&#13;
+}&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+contract Operational is Claimable {&#13;
+    address public operator;&#13;
+&#13;
+    function Operational(address _operator) public {&#13;
+      operator = _operator;&#13;
+    }&#13;
+&#13;
+    modifier onlyOperator() {&#13;
+      require(msg.sender == operator);&#13;
+      _;&#13;
+    }&#13;
+&#13;
+    function transferOperator(address newOperator) public onlyOwner {&#13;
+      require(newOperator != address(0));&#13;
+      operator = newOperator;&#13;
+    }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+contract YunMint is Operational, ReentrancyGuard, BurnableToken, StandardToken {&#13;
+    using SafeMath for uint;&#13;
+    using SafeMath for uint256;&#13;
+    using DateTime for uint256;&#13;
+&#13;
+&#13;
+    event Release(address operator, uint256 value, uint256 releaseTime);&#13;
+    event Burn(address indexed burner, uint256 value);&#13;
+    event Freeze(address indexed owner, uint256 value, uint256 releaseTime);&#13;
+    event Unfreeze(address indexed owner, uint256 value, uint256 releaseTime);&#13;
+&#13;
+    struct FrozenBalance {address owner; uint256 value; uint256 unFrozenTime;}&#13;
+    mapping (uint =&gt; FrozenBalance) public frozenBalances;&#13;
+    uint public frozenBalanceCount = 0;&#13;
+&#13;
+    //init 303000000&#13;
+    uint256 constant valueTotal = 303000000 * (10 ** 8);&#13;
+    /* uint256 public totalSupply = 0; */&#13;
+&#13;
+&#13;
+    uint256 public releasedSupply;&#13;
+    uint    public releasedCount = 0;&#13;
+    uint    public cycleCount = 0;&#13;
+    uint256 public firstReleaseAmount;&#13;
+    uint256 public curReleaseAmount;&#13;
+&#13;
+    uint256 public createTime = 0;&#13;
+    uint256 public lastReleaseTime = 0;&#13;
+&#13;
+    modifier validAddress(address _address) {&#13;
+        assert(0x0 != _address);&#13;
+        _;&#13;
+    }&#13;
+&#13;
+    function YunMint(address _operator) public validAddress(_operator) Operational(_operator) {&#13;
+        createTime = block.timestamp;&#13;
+        totalSupply_ = valueTotal;&#13;
+        firstReleaseAmount = 200000 * (10 ** 8);&#13;
+    }&#13;
+&#13;
+    function batchTransfer(address[] _to, uint256[] _amount) public returns(bool success) {&#13;
+        for(uint i = 0; i &lt; _to.length; i++){&#13;
+            require(transfer(_to[i], _amount[i]));&#13;
+        }&#13;
+        return true;&#13;
+    }&#13;
+&#13;
+    function release(uint256 timestamp) public onlyOperator returns(bool) {&#13;
+        require(timestamp &lt;= block.timestamp);&#13;
+        if(lastReleaseTime &gt; 0){&#13;
+            require(timestamp &gt; lastReleaseTime);&#13;
+        }&#13;
+        require(!hasItBeenReleased(timestamp));&#13;
+&#13;
+        cycleCount = releasedCount.div(30);&#13;
+        require(cycleCount &lt; 100);&#13;
+        require(releasedSupply &lt; valueTotal);&#13;
+&#13;
+        curReleaseAmount = firstReleaseAmount - (cycleCount * 2000 * (10 ** 8));&#13;
+        balances[owner] = balances[owner].add(curReleaseAmount);&#13;
+        releasedSupply = releasedSupply.add(curReleaseAmount);&#13;
+&#13;
+&#13;
+        lastReleaseTime = timestamp;&#13;
+        releasedCount = releasedCount + 1;&#13;
+        emit Release(msg.sender, curReleaseAmount, lastReleaseTime);&#13;
+        emit Transfer(address(0), owner, curReleaseAmount);&#13;
+        return true;&#13;
+    }&#13;
+&#13;
+&#13;
+    function hasItBeenReleased(uint256 timestamp) internal view returns(bool _exist) {&#13;
+        bool exist = false;&#13;
+        if ((lastReleaseTime.parseTimestamp().year == timestamp.parseTimestamp().year)&#13;
+            &amp;&amp; (lastReleaseTime.parseTimestamp().month == timestamp.parseTimestamp().month)&#13;
+            &amp;&amp; (lastReleaseTime.parseTimestamp().day == timestamp.parseTimestamp().day)) {&#13;
+            exist = true;&#13;
+        }&#13;
+        return exist;&#13;
+    }&#13;
+&#13;
+&#13;
+&#13;
+    function freeze(uint256 _value, uint256 _unFrozenTime) nonReentrant public returns (bool) {&#13;
+        require(balances[msg.sender] &gt;= _value);&#13;
+        require(_unFrozenTime &gt; createTime);&#13;
+        require(_unFrozenTime &gt; block.timestamp);&#13;
+&#13;
+        balances[msg.sender] = balances[msg.sender].sub(_value);&#13;
+        frozenBalances[frozenBalanceCount] = FrozenBalance({owner: msg.sender, value: _value, unFrozenTime: _unFrozenTime});&#13;
+        frozenBalanceCount++;&#13;
+        emit Freeze(msg.sender, _value, _unFrozenTime);&#13;
+        return true;&#13;
+    }&#13;
+&#13;
+&#13;
+    function frozenBalanceOf(address _owner) constant public returns (uint256 value) {&#13;
+        for (uint i = 0; i &lt; frozenBalanceCount; i++) {&#13;
+            FrozenBalance storage frozenBalance = frozenBalances[i];&#13;
+            if (_owner == frozenBalance.owner) {&#13;
+                value = value.add(frozenBalance.value);&#13;
+            }&#13;
+        }&#13;
+        return value;&#13;
+    }&#13;
+&#13;
+&#13;
+    function unfreeze() public returns (uint256 releaseAmount) {&#13;
+        uint index = 0;&#13;
+        while (index &lt; frozenBalanceCount) {&#13;
+            if (now &gt;= frozenBalances[index].unFrozenTime) {&#13;
+                releaseAmount += frozenBalances[index].value;&#13;
+                unFrozenBalanceByIndex(index);&#13;
+            } else {&#13;
+                index++;&#13;
+            }&#13;
+        }&#13;
+        return releaseAmount;&#13;
+    }&#13;
+&#13;
+    function unFrozenBalanceByIndex(uint index) internal {&#13;
+        FrozenBalance storage frozenBalance = frozenBalances[index];&#13;
+        balances[frozenBalance.owner] = balances[frozenBalance.owner].add(frozenBalance.value);&#13;
+        emit Unfreeze(frozenBalance.owner, frozenBalance.value, frozenBalance.unFrozenTime);&#13;
+        frozenBalances[index] = frozenBalances[frozenBalanceCount - 1];&#13;
+        delete frozenBalances[frozenBalanceCount - 1];&#13;
+        frozenBalanceCount--;&#13;
+    }&#13;
+}&#13;
+&#13;
+&#13;
+contract YunToken is YunMint {&#13;
+    string public standard = '2018062301';&#13;
+    string public name = 'YunToken';&#13;
+    string public symbol = 'YUN';&#13;
+    uint8 public decimals = 8;&#13;
+    function YunToken(address _operator) YunMint(_operator) public {}&#13;
+}

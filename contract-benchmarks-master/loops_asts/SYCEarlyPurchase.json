@@ -1,0 +1,4111 @@
+JSON AST (compact format):
+
+
+======= ./contract-benchmarks-master/loops/SYCEarlyPurchase.sol =======
+{
+	"absolutePath" : "./contract-benchmarks-master/loops/SYCEarlyPurchase.sol",
+	"exportedSymbols" : 
+	{
+		"AbstractSYCCrowdsale" : 
+		[
+			2
+		],
+		"SYCEarlyPurchase" : 
+		[
+			294
+		]
+	},
+	"id" : 295,
+	"nodeType" : "SourceUnit",
+	"nodes" : 
+	[
+		{
+			"id" : 1,
+			"literals" : 
+			[
+				"solidity",
+				"^",
+				"0.4",
+				".7"
+			],
+			"nodeType" : "PragmaDirective",
+			"src" : "0:23:0"
+		},
+		{
+			"baseContracts" : [],
+			"contractDependencies" : [],
+			"contractKind" : "contract",
+			"documentation" : null,
+			"fullyImplemented" : true,
+			"id" : 2,
+			"linearizedBaseContracts" : 
+			[
+				2
+			],
+			"name" : "AbstractSYCCrowdsale",
+			"nodeType" : "ContractDefinition",
+			"nodes" : [],
+			"scope" : 295,
+			"src" : "27:34:0"
+		},
+		{
+			"baseContracts" : [],
+			"contractDependencies" : [],
+			"contractKind" : "contract",
+			"documentation" : "@title EarlyPurchase contract - Keep track of purchased amount by Early Purchasers\r\n Project by SynchroLife Team (https://synchrolife.org)\r\n This smart contract developed by Starbase - Token funding & payment Platform for innovative projects <support[at]starbase.co>\r",
+			"fullyImplemented" : true,
+			"id" : 294,
+			"linearizedBaseContracts" : 
+			[
+				294
+			],
+			"name" : "SYCEarlyPurchase",
+			"nodeType" : "ContractDefinition",
+			"nodes" : 
+			[
+				{
+					"constant" : true,
+					"id" : 5,
+					"name" : "PURCHASE_AMOUNT_UNIT",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "415:51:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_string_memory",
+						"typeString" : "string"
+					},
+					"typeName" : 
+					{
+						"id" : 3,
+						"name" : "string",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "415:6:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_string_storage_ptr",
+							"typeString" : "string"
+						}
+					},
+					"value" : 
+					{
+						"argumentTypes" : null,
+						"hexValue" : "455448",
+						"id" : 4,
+						"isConstant" : false,
+						"isLValue" : false,
+						"isPure" : true,
+						"kind" : "string",
+						"lValueRequested" : false,
+						"nodeType" : "Literal",
+						"src" : "461:5:0",
+						"subdenomination" : null,
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_stringliteral_aaaebeba3810b1e6b70781f14b2d72c1cb89c0b2b320c43bb67ff79f562f5ff4",
+							"typeString" : "literal_string \"ETH\""
+						},
+						"value" : "ETH"
+					},
+					"visibility" : "public"
+				},
+				{
+					"constant" : true,
+					"id" : 12,
+					"name" : "WEI_MINIMUM_PURCHASE",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "485:56:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 6,
+						"name" : "uint",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "485:4:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : 
+					{
+						"argumentTypes" : null,
+						"commonType" : 
+						{
+							"typeIdentifier" : "t_rational_1000000000000000000_by_1",
+							"typeString" : "int_const 1000000000000000000"
+						},
+						"id" : 11,
+						"isConstant" : false,
+						"isLValue" : false,
+						"isPure" : true,
+						"lValueRequested" : false,
+						"leftExpression" : 
+						{
+							"argumentTypes" : null,
+							"hexValue" : "31",
+							"id" : 7,
+							"isConstant" : false,
+							"isLValue" : false,
+							"isPure" : true,
+							"kind" : "number",
+							"lValueRequested" : false,
+							"nodeType" : "Literal",
+							"src" : "529:1:0",
+							"subdenomination" : null,
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_rational_1_by_1",
+								"typeString" : "int_const 1"
+							},
+							"value" : "1"
+						},
+						"nodeType" : "BinaryOperation",
+						"operator" : "*",
+						"rightExpression" : 
+						{
+							"argumentTypes" : null,
+							"commonType" : 
+							{
+								"typeIdentifier" : "t_rational_1000000000000000000_by_1",
+								"typeString" : "int_const 1000000000000000000"
+							},
+							"id" : 10,
+							"isConstant" : false,
+							"isLValue" : false,
+							"isPure" : true,
+							"lValueRequested" : false,
+							"leftExpression" : 
+							{
+								"argumentTypes" : null,
+								"hexValue" : "3130",
+								"id" : 8,
+								"isConstant" : false,
+								"isLValue" : false,
+								"isPure" : true,
+								"kind" : "number",
+								"lValueRequested" : false,
+								"nodeType" : "Literal",
+								"src" : "533:2:0",
+								"subdenomination" : null,
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_rational_10_by_1",
+									"typeString" : "int_const 10"
+								},
+								"value" : "10"
+							},
+							"nodeType" : "BinaryOperation",
+							"operator" : "**",
+							"rightExpression" : 
+							{
+								"argumentTypes" : null,
+								"hexValue" : "3138",
+								"id" : 9,
+								"isConstant" : false,
+								"isLValue" : false,
+								"isPure" : true,
+								"kind" : "number",
+								"lValueRequested" : false,
+								"nodeType" : "Literal",
+								"src" : "539:2:0",
+								"subdenomination" : null,
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_rational_18_by_1",
+									"typeString" : "int_const 18"
+								},
+								"value" : "18"
+							},
+							"src" : "533:8:0",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_rational_1000000000000000000_by_1",
+								"typeString" : "int_const 1000000000000000000"
+							}
+						},
+						"src" : "529:12:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_rational_1000000000000000000_by_1",
+							"typeString" : "int_const 1000000000000000000"
+						}
+					},
+					"visibility" : "public"
+				},
+				{
+					"constant" : true,
+					"id" : 19,
+					"name" : "WEI_MAXIMUM_EARLYPURCHASE",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "548:61:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 13,
+						"name" : "uint",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "548:4:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : 
+					{
+						"argumentTypes" : null,
+						"commonType" : 
+						{
+							"typeIdentifier" : "t_rational_2000000000000000000_by_1",
+							"typeString" : "int_const 2000000000000000000"
+						},
+						"id" : 18,
+						"isConstant" : false,
+						"isLValue" : false,
+						"isPure" : true,
+						"lValueRequested" : false,
+						"leftExpression" : 
+						{
+							"argumentTypes" : null,
+							"hexValue" : "32",
+							"id" : 14,
+							"isConstant" : false,
+							"isLValue" : false,
+							"isPure" : true,
+							"kind" : "number",
+							"lValueRequested" : false,
+							"nodeType" : "Literal",
+							"src" : "597:1:0",
+							"subdenomination" : null,
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_rational_2_by_1",
+								"typeString" : "int_const 2"
+							},
+							"value" : "2"
+						},
+						"nodeType" : "BinaryOperation",
+						"operator" : "*",
+						"rightExpression" : 
+						{
+							"argumentTypes" : null,
+							"commonType" : 
+							{
+								"typeIdentifier" : "t_rational_1000000000000000000_by_1",
+								"typeString" : "int_const 1000000000000000000"
+							},
+							"id" : 17,
+							"isConstant" : false,
+							"isLValue" : false,
+							"isPure" : true,
+							"lValueRequested" : false,
+							"leftExpression" : 
+							{
+								"argumentTypes" : null,
+								"hexValue" : "3130",
+								"id" : 15,
+								"isConstant" : false,
+								"isLValue" : false,
+								"isPure" : true,
+								"kind" : "number",
+								"lValueRequested" : false,
+								"nodeType" : "Literal",
+								"src" : "601:2:0",
+								"subdenomination" : null,
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_rational_10_by_1",
+									"typeString" : "int_const 10"
+								},
+								"value" : "10"
+							},
+							"nodeType" : "BinaryOperation",
+							"operator" : "**",
+							"rightExpression" : 
+							{
+								"argumentTypes" : null,
+								"hexValue" : "3138",
+								"id" : 16,
+								"isConstant" : false,
+								"isLValue" : false,
+								"isPure" : true,
+								"kind" : "number",
+								"lValueRequested" : false,
+								"nodeType" : "Literal",
+								"src" : "607:2:0",
+								"subdenomination" : null,
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_rational_18_by_1",
+									"typeString" : "int_const 18"
+								},
+								"value" : "18"
+							},
+							"src" : "601:8:0",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_rational_1000000000000000000_by_1",
+								"typeString" : "int_const 1000000000000000000"
+							}
+						},
+						"src" : "597:12:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_rational_2000000000000000000_by_1",
+							"typeString" : "int_const 2000000000000000000"
+						}
+					},
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 21,
+					"name" : "owner",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "616:20:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_address",
+						"typeString" : "address"
+					},
+					"typeName" : 
+					{
+						"id" : 20,
+						"name" : "address",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "616:7:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_address",
+							"typeString" : "address"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 24,
+					"name" : "earlyPurchases",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "643:37:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage",
+						"typeString" : "struct SYCEarlyPurchase.EarlyPurchase[]"
+					},
+					"typeName" : 
+					{
+						"baseType" : 
+						{
+							"contractScope" : null,
+							"id" : 22,
+							"name" : "EarlyPurchase",
+							"nodeType" : "UserDefinedTypeName",
+							"referencedDeclaration" : 35,
+							"src" : "643:13:0",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_struct$_EarlyPurchase_$35_storage_ptr",
+								"typeString" : "struct SYCEarlyPurchase.EarlyPurchase"
+							}
+						},
+						"id" : 23,
+						"length" : null,
+						"nodeType" : "ArrayTypeName",
+						"src" : "643:15:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage_ptr",
+							"typeString" : "struct SYCEarlyPurchase.EarlyPurchase[]"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 26,
+					"name" : "earlyPurchaseClosedAt",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "687:33:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 25,
+						"name" : "uint",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "687:4:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 28,
+					"name" : "totalEarlyPurchaseRaised",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "727:36:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 27,
+						"name" : "uint",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "727:4:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"canonicalName" : "SYCEarlyPurchase.EarlyPurchase",
+					"id" : 35,
+					"members" : 
+					[
+						{
+							"constant" : false,
+							"id" : 30,
+							"name" : "purchaser",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 35,
+							"src" : "836:17:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_address",
+								"typeString" : "address"
+							},
+							"typeName" : 
+							{
+								"id" : 29,
+								"name" : "address",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "836:7:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 32,
+							"name" : "amount",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 35,
+							"src" : "864:11:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_uint256",
+								"typeString" : "uint256"
+							},
+							"typeName" : 
+							{
+								"id" : 31,
+								"name" : "uint",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "864:4:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 34,
+							"name" : "purchasedAt",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 35,
+							"src" : "929:16:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_uint256",
+								"typeString" : "uint256"
+							},
+							"typeName" : 
+							{
+								"id" : 33,
+								"name" : "uint",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "929:4:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						}
+					],
+					"name" : "EarlyPurchase",
+					"nodeType" : "StructDefinition",
+					"scope" : 294,
+					"src" : "804:164:0",
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 37,
+					"name" : "sycCrowdsale",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 294,
+					"src" : "1021:40:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+						"typeString" : "contract AbstractSYCCrowdsale"
+					},
+					"typeName" : 
+					{
+						"contractScope" : null,
+						"id" : 36,
+						"name" : "AbstractSYCCrowdsale",
+						"nodeType" : "UserDefinedTypeName",
+						"referencedDeclaration" : 2,
+						"src" : "1021:20:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+							"typeString" : "contract AbstractSYCCrowdsale"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 47,
+						"nodeType" : "Block",
+						"src" : "1129:87:0",
+						"statements" : 
+						[
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									},
+									"id" : 42,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 39,
+											"name" : "msg",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 309,
+											"src" : "1144:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_message",
+												"typeString" : "msg"
+											}
+										},
+										"id" : 40,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "sender",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "1144:10:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "!=",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 41,
+										"name" : "owner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 21,
+										"src" : "1158:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "1144:19:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 45,
+								"nodeType" : "IfStatement",
+								"src" : "1140:57:0",
+								"trueBody" : 
+								{
+									"id" : 44,
+									"nodeType" : "Block",
+									"src" : "1165:32:0",
+									"statements" : 
+									[
+										{
+											"id" : 43,
+											"nodeType" : "Throw",
+											"src" : "1180:5:0"
+										}
+									]
+								}
+							},
+							{
+								"id" : 46,
+								"nodeType" : "PlaceholderStatement",
+								"src" : "1207:1:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 48,
+					"name" : "onlyOwner",
+					"nodeType" : "ModifierDefinition",
+					"parameters" : 
+					{
+						"id" : 38,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "1126:2:0"
+					},
+					"src" : "1108:108:0",
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 57,
+						"nodeType" : "Block",
+						"src" : "1257:93:0",
+						"statements" : 
+						[
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 52,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 50,
+										"name" : "earlyPurchaseClosedAt",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 26,
+										"src" : "1272:21:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : ">",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"hexValue" : "30",
+										"id" : 51,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : true,
+										"kind" : "number",
+										"lValueRequested" : false,
+										"nodeType" : "Literal",
+										"src" : "1296:1:0",
+										"subdenomination" : null,
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_rational_0_by_1",
+											"typeString" : "int_const 0"
+										},
+										"value" : "0"
+									},
+									"src" : "1272:25:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 55,
+								"nodeType" : "IfStatement",
+								"src" : "1268:63:0",
+								"trueBody" : 
+								{
+									"id" : 54,
+									"nodeType" : "Block",
+									"src" : "1299:32:0",
+									"statements" : 
+									[
+										{
+											"id" : 53,
+											"nodeType" : "Throw",
+											"src" : "1314:5:0"
+										}
+									]
+								}
+							},
+							{
+								"id" : 56,
+								"nodeType" : "PlaceholderStatement",
+								"src" : "1341:1:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 58,
+					"name" : "onlyEarlyPurchaseTerm",
+					"nodeType" : "ModifierDefinition",
+					"parameters" : 
+					{
+						"id" : 49,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "1254:2:0"
+					},
+					"src" : "1224:126:0",
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 66,
+						"nodeType" : "Block",
+						"src" : "1430:37:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 64,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 61,
+										"name" : "owner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 21,
+										"src" : "1441:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 62,
+											"name" : "msg",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 309,
+											"src" : "1449:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_message",
+												"typeString" : "msg"
+											}
+										},
+										"id" : 63,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "sender",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "1449:10:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "1441:18:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 65,
+								"nodeType" : "ExpressionStatement",
+								"src" : "1441:18:0"
+							}
+						]
+					},
+					"documentation" : "@dev Contract constructor function\r",
+					"id" : 67,
+					"implemented" : true,
+					"isConstructor" : true,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "SYCEarlyPurchase",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 59,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "1427:2:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 60,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "1430:0:0"
+					},
+					"scope" : 294,
+					"src" : "1402:65:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 101,
+						"nodeType" : "Block",
+						"src" : "1750:204:0",
+						"statements" : 
+						[
+							{
+								"body" : 
+								{
+									"id" : 99,
+									"nodeType" : "Block",
+									"src" : "1806:141:0",
+									"statements" : 
+									[
+										{
+											"condition" : 
+											{
+												"argumentTypes" : null,
+												"commonType" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												},
+												"id" : 89,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftExpression" : 
+												{
+													"argumentTypes" : null,
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"baseExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 84,
+															"name" : "earlyPurchases",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 24,
+															"src" : "1825:14:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage",
+																"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref[] storage ref"
+															}
+														},
+														"id" : 86,
+														"indexExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 85,
+															"name" : "i",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 75,
+															"src" : "1840:1:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_uint256",
+																"typeString" : "uint256"
+															}
+														},
+														"isConstant" : false,
+														"isLValue" : true,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"nodeType" : "IndexAccess",
+														"src" : "1825:17:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_struct$_EarlyPurchase_$35_storage",
+															"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref"
+														}
+													},
+													"id" : 87,
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"memberName" : "purchaser",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : 30,
+													"src" : "1825:27:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"nodeType" : "BinaryOperation",
+												"operator" : "==",
+												"rightExpression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 88,
+													"name" : "purchaser",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 69,
+													"src" : "1856:9:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												"src" : "1825:40:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bool",
+													"typeString" : "bool"
+												}
+											},
+											"falseBody" : null,
+											"id" : 98,
+											"nodeType" : "IfStatement",
+											"src" : "1821:115:0",
+											"trueBody" : 
+											{
+												"id" : 97,
+												"nodeType" : "Block",
+												"src" : "1867:69:0",
+												"statements" : 
+												[
+													{
+														"expression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 95,
+															"isConstant" : false,
+															"isLValue" : false,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"leftHandSide" : 
+															{
+																"argumentTypes" : null,
+																"id" : 90,
+																"name" : "amount",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 72,
+																"src" : "1886:6:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_uint256",
+																	"typeString" : "uint256"
+																}
+															},
+															"nodeType" : "Assignment",
+															"operator" : "+=",
+															"rightHandSide" : 
+															{
+																"argumentTypes" : null,
+																"expression" : 
+																{
+																	"argumentTypes" : null,
+																	"baseExpression" : 
+																	{
+																		"argumentTypes" : null,
+																		"id" : 91,
+																		"name" : "earlyPurchases",
+																		"nodeType" : "Identifier",
+																		"overloadedDeclarations" : [],
+																		"referencedDeclaration" : 24,
+																		"src" : "1896:14:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage",
+																			"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref[] storage ref"
+																		}
+																	},
+																	"id" : 93,
+																	"indexExpression" : 
+																	{
+																		"argumentTypes" : null,
+																		"id" : 92,
+																		"name" : "i",
+																		"nodeType" : "Identifier",
+																		"overloadedDeclarations" : [],
+																		"referencedDeclaration" : 75,
+																		"src" : "1911:1:0",
+																		"typeDescriptions" : 
+																		{
+																			"typeIdentifier" : "t_uint256",
+																			"typeString" : "uint256"
+																		}
+																	},
+																	"isConstant" : false,
+																	"isLValue" : true,
+																	"isPure" : false,
+																	"lValueRequested" : false,
+																	"nodeType" : "IndexAccess",
+																	"src" : "1896:17:0",
+																	"typeDescriptions" : 
+																	{
+																		"typeIdentifier" : "t_struct$_EarlyPurchase_$35_storage",
+																		"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref"
+																	}
+																},
+																"id" : 94,
+																"isConstant" : false,
+																"isLValue" : true,
+																"isPure" : false,
+																"lValueRequested" : false,
+																"memberName" : "amount",
+																"nodeType" : "MemberAccess",
+																"referencedDeclaration" : 32,
+																"src" : "1896:24:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_uint256",
+																	"typeString" : "uint256"
+																}
+															},
+															"src" : "1886:34:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_uint256",
+																"typeString" : "uint256"
+															}
+														},
+														"id" : 96,
+														"nodeType" : "ExpressionStatement",
+														"src" : "1886:34:0"
+													}
+												]
+											}
+										}
+									]
+								},
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 80,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 77,
+										"name" : "i",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 75,
+										"src" : "1774:1:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "<",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 78,
+											"name" : "earlyPurchases",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 24,
+											"src" : "1778:14:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage",
+												"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref[] storage ref"
+											}
+										},
+										"id" : 79,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "length",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "1778:21:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "1774:25:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"id" : 100,
+								"initializationExpression" : 
+								{
+									"assignments" : [],
+									"declarations" : 
+									[
+										{
+											"constant" : false,
+											"id" : 75,
+											"name" : "i",
+											"nodeType" : "VariableDeclaration",
+											"scope" : 102,
+											"src" : "1766:6:0",
+											"stateVariable" : false,
+											"storageLocation" : "default",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											"typeName" : 
+											{
+												"id" : 74,
+												"name" : "uint",
+												"nodeType" : "ElementaryTypeName",
+												"src" : "1766:4:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"value" : null,
+											"visibility" : "internal"
+										}
+									],
+									"id" : 76,
+									"initialValue" : null,
+									"nodeType" : "VariableDeclarationStatement",
+									"src" : "1766:6:0"
+								},
+								"loopExpression" : 
+								{
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 82,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "UnaryOperation",
+										"operator" : "++",
+										"prefix" : false,
+										"src" : "1801:3:0",
+										"subExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 81,
+											"name" : "i",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 75,
+											"src" : "1801:1:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"id" : 83,
+									"nodeType" : "ExpressionStatement",
+									"src" : "1801:3:0"
+								},
+								"nodeType" : "ForStatement",
+								"src" : "1761:186:0"
+							}
+						]
+					},
+					"documentation" : "@dev Returns early purchased amount by purchaser's address\r\n @param purchaser Purchaser address\r",
+					"id" : 102,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "purchasedAmountBy",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 70,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 69,
+								"name" : "purchaser",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 102,
+								"src" : "1659:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 68,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1659:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1658:19:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 73,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 72,
+								"name" : "amount",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 102,
+								"src" : "1732:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 71,
+									"name" : "uint",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1732:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1731:13:0"
+					},
+					"scope" : 294,
+					"src" : "1632:322:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "external"
+				},
+				{
+					"body" : 
+					{
+						"id" : 110,
+						"nodeType" : "Block",
+						"src" : "2109:47:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 107,
+										"name" : "earlyPurchases",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 24,
+										"src" : "2127:14:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage",
+											"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref[] storage ref"
+										}
+									},
+									"id" : 108,
+									"isConstant" : false,
+									"isLValue" : true,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"memberName" : "length",
+									"nodeType" : "MemberAccess",
+									"referencedDeclaration" : null,
+									"src" : "2127:21:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"functionReturnParameters" : 106,
+								"id" : 109,
+								"nodeType" : "Return",
+								"src" : "2120:28:0"
+							}
+						]
+					},
+					"documentation" : "@dev Returns number of early purchases\r",
+					"id" : 111,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "numberOfEarlyPurchases",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 103,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "2041:2:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 106,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 105,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 111,
+								"src" : "2098:4:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 104,
+									"name" : "uint",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2098:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2097:6:0"
+					},
+					"scope" : 294,
+					"src" : "2010:146:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "external"
+				},
+				{
+					"body" : 
+					{
+						"id" : 192,
+						"nodeType" : "Block",
+						"src" : "2503:742:0",
+						"statements" : 
+						[
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									},
+									"id" : 130,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"commonType" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										},
+										"id" : 126,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"leftExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 124,
+											"name" : "purchasedAt",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 117,
+											"src" : "2518:11:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"nodeType" : "BinaryOperation",
+										"operator" : "==",
+										"rightExpression" : 
+										{
+											"argumentTypes" : null,
+											"hexValue" : "30",
+											"id" : 125,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : true,
+											"kind" : "number",
+											"lValueRequested" : false,
+											"nodeType" : "Literal",
+											"src" : "2533:1:0",
+											"subdenomination" : null,
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_rational_0_by_1",
+												"typeString" : "int_const 0"
+											},
+											"value" : "0"
+										},
+										"src" : "2518:16:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "||",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"commonType" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										},
+										"id" : 129,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"leftExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 127,
+											"name" : "purchasedAt",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 117,
+											"src" : "2538:11:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"nodeType" : "BinaryOperation",
+										"operator" : ">",
+										"rightExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 128,
+											"name" : "now",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 311,
+											"src" : "2552:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"src" : "2538:17:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"src" : "2518:37:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 133,
+								"nodeType" : "IfStatement",
+								"src" : "2514:75:0",
+								"trueBody" : 
+								{
+									"id" : 132,
+									"nodeType" : "Block",
+									"src" : "2557:32:0",
+									"statements" : 
+									[
+										{
+											"id" : 131,
+											"nodeType" : "Throw",
+											"src" : "2572:5:0"
+										}
+									]
+								}
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"arguments" : 
+											[
+												{
+													"argumentTypes" : null,
+													"id" : 138,
+													"name" : "purchaser",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 113,
+													"src" : "2635:9:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													}
+												},
+												{
+													"argumentTypes" : null,
+													"id" : 139,
+													"name" : "amount",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 115,
+													"src" : "2646:6:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												{
+													"argumentTypes" : null,
+													"id" : 140,
+													"name" : "purchasedAt",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 117,
+													"src" : "2654:11:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												}
+											],
+											"expression" : 
+											{
+												"argumentTypes" : 
+												[
+													{
+														"typeIdentifier" : "t_address",
+														"typeString" : "address"
+													},
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													},
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												],
+												"id" : 137,
+												"name" : "EarlyPurchase",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 35,
+												"src" : "2621:13:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_type$_t_struct$_EarlyPurchase_$35_storage_ptr_$",
+													"typeString" : "type(struct SYCEarlyPurchase.EarlyPurchase storage pointer)"
+												}
+											},
+											"id" : 141,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"kind" : "structConstructorCall",
+											"lValueRequested" : false,
+											"names" : [],
+											"nodeType" : "FunctionCall",
+											"src" : "2621:45:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_EarlyPurchase_$35_memory",
+												"typeString" : "struct SYCEarlyPurchase.EarlyPurchase memory"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_struct$_EarlyPurchase_$35_memory",
+												"typeString" : "struct SYCEarlyPurchase.EarlyPurchase memory"
+											}
+										],
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 134,
+											"name" : "earlyPurchases",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 24,
+											"src" : "2601:14:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_array$_t_struct$_EarlyPurchase_$35_storage_$dyn_storage",
+												"typeString" : "struct SYCEarlyPurchase.EarlyPurchase storage ref[] storage ref"
+											}
+										},
+										"id" : 136,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "push",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "2601:19:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_arraypush_nonpayable$_t_struct$_EarlyPurchase_$35_storage_$returns$_t_uint256_$",
+											"typeString" : "function (struct SYCEarlyPurchase.EarlyPurchase storage ref) returns (uint256)"
+										}
+									},
+									"id" : 142,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "2601:66:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 143,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2601:66:0"
+							},
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									},
+									"id" : 150,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"commonType" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										},
+										"id" : 146,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"leftExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 144,
+											"name" : "purchasedAt",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 117,
+											"src" : "2682:11:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"nodeType" : "BinaryOperation",
+										"operator" : "==",
+										"rightExpression" : 
+										{
+											"argumentTypes" : null,
+											"hexValue" : "30",
+											"id" : 145,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : true,
+											"kind" : "number",
+											"lValueRequested" : false,
+											"nodeType" : "Literal",
+											"src" : "2697:1:0",
+											"subdenomination" : null,
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_rational_0_by_1",
+												"typeString" : "int_const 0"
+											},
+											"value" : "0"
+										},
+										"src" : "2682:16:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "||",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"commonType" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										},
+										"id" : 149,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"leftExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 147,
+											"name" : "purchasedAt",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 117,
+											"src" : "2702:11:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"nodeType" : "BinaryOperation",
+										"operator" : ">",
+										"rightExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 148,
+											"name" : "now",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 311,
+											"src" : "2716:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"src" : "2702:17:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"src" : "2682:37:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 153,
+								"nodeType" : "IfStatement",
+								"src" : "2678:75:0",
+								"trueBody" : 
+								{
+									"id" : 152,
+									"nodeType" : "Block",
+									"src" : "2721:32:0",
+									"statements" : 
+									[
+										{
+											"id" : 151,
+											"nodeType" : "Throw",
+											"src" : "2736:5:0"
+										}
+									]
+								}
+							},
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 158,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"commonType" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										},
+										"id" : 156,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"leftExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 154,
+											"name" : "totalEarlyPurchaseRaised",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 28,
+											"src" : "2768:24:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"nodeType" : "BinaryOperation",
+										"operator" : "+",
+										"rightExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 155,
+											"name" : "amount",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 115,
+											"src" : "2795:6:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"src" : "2768:33:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : ">=",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 157,
+										"name" : "WEI_MAXIMUM_EARLYPURCHASE",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 19,
+										"src" : "2805:25:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "2768:62:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : 
+								{
+									"id" : 180,
+									"nodeType" : "Block",
+									"src" : "3042:60:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 178,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 176,
+													"name" : "totalEarlyPurchaseRaised",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 28,
+													"src" : "3056:24:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "+=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 177,
+													"name" : "amount",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 115,
+													"src" : "3084:6:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"src" : "3056:34:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"id" : 179,
+											"nodeType" : "ExpressionStatement",
+											"src" : "3056:34:0"
+										}
+									]
+								},
+								"id" : 181,
+								"nodeType" : "IfStatement",
+								"src" : "2765:337:0",
+								"trueBody" : 
+								{
+									"id" : 175,
+									"nodeType" : "Block",
+									"src" : "2831:197:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"arguments" : 
+												[
+													{
+														"argumentTypes" : null,
+														"commonType" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														},
+														"id" : 166,
+														"isConstant" : false,
+														"isLValue" : false,
+														"isPure" : false,
+														"lValueRequested" : false,
+														"leftExpression" : 
+														{
+															"argumentTypes" : null,
+															"commonType" : 
+															{
+																"typeIdentifier" : "t_uint256",
+																"typeString" : "uint256"
+															},
+															"id" : 164,
+															"isConstant" : false,
+															"isLValue" : false,
+															"isPure" : false,
+															"lValueRequested" : false,
+															"leftExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 162,
+																"name" : "totalEarlyPurchaseRaised",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 28,
+																"src" : "2860:24:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_uint256",
+																	"typeString" : "uint256"
+																}
+															},
+															"nodeType" : "BinaryOperation",
+															"operator" : "+",
+															"rightExpression" : 
+															{
+																"argumentTypes" : null,
+																"id" : 163,
+																"name" : "amount",
+																"nodeType" : "Identifier",
+																"overloadedDeclarations" : [],
+																"referencedDeclaration" : 115,
+																"src" : "2887:6:0",
+																"typeDescriptions" : 
+																{
+																	"typeIdentifier" : "t_uint256",
+																	"typeString" : "uint256"
+																}
+															},
+															"src" : "2860:33:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_uint256",
+																"typeString" : "uint256"
+															}
+														},
+														"nodeType" : "BinaryOperation",
+														"operator" : "-",
+														"rightExpression" : 
+														{
+															"argumentTypes" : null,
+															"id" : 165,
+															"name" : "WEI_MAXIMUM_EARLYPURCHASE",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 19,
+															"src" : "2896:25:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_uint256",
+																"typeString" : "uint256"
+															}
+														},
+														"src" : "2860:61:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													}
+												],
+												"expression" : 
+												{
+													"argumentTypes" : 
+													[
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													],
+													"expression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 159,
+														"name" : "purchaser",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 113,
+														"src" : "2845:9:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_address",
+															"typeString" : "address"
+														}
+													},
+													"id" : 161,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"memberName" : "send",
+													"nodeType" : "MemberAccess",
+													"referencedDeclaration" : null,
+													"src" : "2845:14:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_function_send_nonpayable$_t_uint256_$returns$_t_bool_$",
+														"typeString" : "function (uint256) returns (bool)"
+													}
+												},
+												"id" : 167,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"kind" : "functionCall",
+												"lValueRequested" : false,
+												"names" : [],
+												"nodeType" : "FunctionCall",
+												"src" : "2845:77:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bool",
+													"typeString" : "bool"
+												}
+											},
+											"id" : 168,
+											"nodeType" : "ExpressionStatement",
+											"src" : "2845:77:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 173,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 169,
+													"name" : "totalEarlyPurchaseRaised",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 28,
+													"src" : "2936:24:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "+=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"commonType" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													},
+													"id" : 172,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"leftExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 170,
+														"name" : "WEI_MAXIMUM_EARLYPURCHASE",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 19,
+														"src" : "2964:25:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"nodeType" : "BinaryOperation",
+													"operator" : "-",
+													"rightExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 171,
+														"name" : "totalEarlyPurchaseRaised",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 28,
+														"src" : "2992:24:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"src" : "2964:52:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_uint256",
+														"typeString" : "uint256"
+													}
+												},
+												"src" : "2936:80:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"id" : 174,
+											"nodeType" : "ExpressionStatement",
+											"src" : "2936:80:0"
+										}
+									]
+								}
+							},
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 184,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 182,
+										"name" : "totalEarlyPurchaseRaised",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 28,
+										"src" : "3115:24:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : ">=",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 183,
+										"name" : "WEI_MAXIMUM_EARLYPURCHASE",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 19,
+										"src" : "3143:25:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "3115:53:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 189,
+								"nodeType" : "IfStatement",
+								"src" : "3112:104:0",
+								"trueBody" : 
+								{
+									"id" : 188,
+									"nodeType" : "Block",
+									"src" : "3169:47:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"arguments" : [],
+												"expression" : 
+												{
+													"argumentTypes" : [],
+													"id" : 185,
+													"name" : "closeEarlyPurchase",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 205,
+													"src" : "3184:18:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_function_internal_nonpayable$__$returns$_t_bool_$",
+														"typeString" : "function () returns (bool)"
+													}
+												},
+												"id" : 186,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"kind" : "functionCall",
+												"lValueRequested" : false,
+												"names" : [],
+												"nodeType" : "FunctionCall",
+												"src" : "3184:20:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bool",
+													"typeString" : "bool"
+												}
+											},
+											"id" : 187,
+											"nodeType" : "ExpressionStatement",
+											"src" : "3184:20:0"
+										}
+									]
+								}
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"hexValue" : "74727565",
+									"id" : 190,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : true,
+									"kind" : "bool",
+									"lValueRequested" : false,
+									"nodeType" : "Literal",
+									"src" : "3233:4:0",
+									"subdenomination" : null,
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									},
+									"value" : "true"
+								},
+								"functionReturnParameters" : 123,
+								"id" : 191,
+								"nodeType" : "Return",
+								"src" : "3226:11:0"
+							}
+						]
+					},
+					"documentation" : "@dev Append an early purchase log\r\n @param purchaser Purchaser address\r\n @param amount Purchase amount\r\n @param purchasedAt Timestamp of purchased date\r",
+					"id" : 193,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 120,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 119,
+								"name" : "onlyEarlyPurchaseTerm",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 58,
+								"src" : "2452:21:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "2452:21:0"
+						}
+					],
+					"name" : "appendEarlyPurchase",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 118,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 113,
+								"name" : "purchaser",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 193,
+								"src" : "2375:17:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 112,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2375:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 115,
+								"name" : "amount",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 193,
+								"src" : "2394:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 114,
+									"name" : "uint",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2394:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 117,
+								"name" : "purchasedAt",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 193,
+								"src" : "2407:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 116,
+									"name" : "uint",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2407:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2374:50:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 123,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 122,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 193,
+								"src" : "2492:4:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bool",
+									"typeString" : "bool"
+								},
+								"typeName" : 
+								{
+									"id" : 121,
+									"name" : "bool",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2492:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2491:6:0"
+					},
+					"scope" : 294,
+					"src" : "2346:899:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 204,
+						"nodeType" : "Block",
+						"src" : "3371:46:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 202,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 200,
+										"name" : "earlyPurchaseClosedAt",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 26,
+										"src" : "3382:21:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 201,
+										"name" : "now",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 311,
+										"src" : "3406:3:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "3382:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 203,
+								"nodeType" : "ExpressionStatement",
+								"src" : "3382:27:0"
+							}
+						]
+					},
+					"documentation" : "@dev Close early purchase term\r",
+					"id" : 205,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 196,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 195,
+								"name" : "onlyOwner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 48,
+								"src" : "3332:9:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "3332:9:0"
+						}
+					],
+					"name" : "closeEarlyPurchase",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 194,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "3320:2:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 199,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 198,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 205,
+								"src" : "3360:4:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bool",
+									"typeString" : "bool"
+								},
+								"typeName" : 
+								{
+									"id" : 197,
+									"name" : "bool",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "3360:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "3359:6:0"
+					},
+					"scope" : 294,
+					"src" : "3293:124:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 231,
+						"nodeType" : "Block",
+						"src" : "3657:182:0",
+						"statements" : 
+						[
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									},
+									"id" : 218,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"arguments" : 
+										[
+											{
+												"argumentTypes" : null,
+												"id" : 215,
+												"name" : "sycCrowdsale",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 37,
+												"src" : "3680:12:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+													"typeString" : "contract AbstractSYCCrowdsale"
+												}
+											}
+										],
+										"expression" : 
+										{
+											"argumentTypes" : 
+											[
+												{
+													"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+													"typeString" : "contract AbstractSYCCrowdsale"
+												}
+											],
+											"id" : 214,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : true,
+											"lValueRequested" : false,
+											"nodeType" : "ElementaryTypeNameExpression",
+											"src" : "3672:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_type$_t_address_$",
+												"typeString" : "type(address)"
+											},
+											"typeName" : "address"
+										},
+										"id" : 216,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"kind" : "typeConversion",
+										"lValueRequested" : false,
+										"names" : [],
+										"nodeType" : "FunctionCall",
+										"src" : "3672:21:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "==",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"hexValue" : "30",
+										"id" : 217,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : true,
+										"kind" : "number",
+										"lValueRequested" : false,
+										"nodeType" : "Literal",
+										"src" : "3697:1:0",
+										"subdenomination" : null,
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_rational_0_by_1",
+											"typeString" : "int_const 0"
+										},
+										"value" : "0"
+									},
+									"src" : "3672:26:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 228,
+								"nodeType" : "IfStatement",
+								"src" : "3668:141:0",
+								"trueBody" : 
+								{
+									"id" : 227,
+									"nodeType" : "Block",
+									"src" : "3700:109:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 223,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"leftHandSide" : 
+												{
+													"argumentTypes" : null,
+													"id" : 219,
+													"name" : "sycCrowdsale",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 37,
+													"src" : "3715:12:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+														"typeString" : "contract AbstractSYCCrowdsale"
+													}
+												},
+												"nodeType" : "Assignment",
+												"operator" : "=",
+												"rightHandSide" : 
+												{
+													"argumentTypes" : null,
+													"arguments" : 
+													[
+														{
+															"argumentTypes" : null,
+															"id" : 221,
+															"name" : "sycCrowdsaleAddress",
+															"nodeType" : "Identifier",
+															"overloadedDeclarations" : [],
+															"referencedDeclaration" : 207,
+															"src" : "3751:19:0",
+															"typeDescriptions" : 
+															{
+																"typeIdentifier" : "t_address",
+																"typeString" : "address"
+															}
+														}
+													],
+													"expression" : 
+													{
+														"argumentTypes" : 
+														[
+															{
+																"typeIdentifier" : "t_address",
+																"typeString" : "address"
+															}
+														],
+														"id" : 220,
+														"name" : "AbstractSYCCrowdsale",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 2,
+														"src" : "3730:20:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_type$_t_contract$_AbstractSYCCrowdsale_$2_$",
+															"typeString" : "type(contract AbstractSYCCrowdsale)"
+														}
+													},
+													"id" : 222,
+													"isConstant" : false,
+													"isLValue" : false,
+													"isPure" : false,
+													"kind" : "typeConversion",
+													"lValueRequested" : false,
+													"names" : [],
+													"nodeType" : "FunctionCall",
+													"src" : "3730:41:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+														"typeString" : "contract AbstractSYCCrowdsale"
+													}
+												},
+												"src" : "3715:56:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_contract$_AbstractSYCCrowdsale_$2",
+													"typeString" : "contract AbstractSYCCrowdsale"
+												}
+											},
+											"id" : 224,
+											"nodeType" : "ExpressionStatement",
+											"src" : "3715:56:0"
+										},
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"hexValue" : "74727565",
+												"id" : 225,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : true,
+												"kind" : "bool",
+												"lValueRequested" : false,
+												"nodeType" : "Literal",
+												"src" : "3793:4:0",
+												"subdenomination" : null,
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_bool",
+													"typeString" : "bool"
+												},
+												"value" : "true"
+											},
+											"functionReturnParameters" : 213,
+											"id" : 226,
+											"nodeType" : "Return",
+											"src" : "3786:11:0"
+										}
+									]
+								}
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"hexValue" : "66616c7365",
+									"id" : 229,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : true,
+									"kind" : "bool",
+									"lValueRequested" : false,
+									"nodeType" : "Literal",
+									"src" : "3826:5:0",
+									"subdenomination" : null,
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									},
+									"value" : "false"
+								},
+								"functionReturnParameters" : 213,
+								"id" : 230,
+								"nodeType" : "Return",
+								"src" : "3819:12:0"
+							}
+						]
+					},
+					"documentation" : "@dev Setup function sets external crowdsale contract's address\r\n @param sycCrowdsaleAddress Token address\r",
+					"id" : 232,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 210,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 209,
+								"name" : "onlyOwner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 48,
+								"src" : "3618:9:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "3618:9:0"
+						}
+					],
+					"name" : "setup",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 208,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 207,
+								"name" : "sycCrowdsaleAddress",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 232,
+								"src" : "3562:27:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 206,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "3562:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "3561:29:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 213,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 212,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 232,
+								"src" : "3646:4:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_bool",
+									"typeString" : "bool"
+								},
+								"typeName" : 
+								{
+									"id" : 211,
+									"name" : "bool",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "3646:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "3645:6:0"
+					},
+					"scope" : 294,
+					"src" : "3547:292:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "external"
+				},
+				{
+					"body" : 
+					{
+						"id" : 246,
+						"nodeType" : "Block",
+						"src" : "3898:103:0",
+						"statements" : 
+						[
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"id" : 243,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "UnaryOperation",
+									"operator" : "!",
+									"prefix" : true,
+									"src" : "3914:29:0",
+									"subExpression" : 
+									{
+										"argumentTypes" : null,
+										"arguments" : 
+										[
+											{
+												"argumentTypes" : null,
+												"id" : 241,
+												"name" : "withdrawalAmount",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 234,
+												"src" : "3926:16:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											}
+										],
+										"expression" : 
+										{
+											"argumentTypes" : 
+											[
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											],
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 239,
+												"name" : "owner",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 21,
+												"src" : "3915:5:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"id" : 240,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "send",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "3915:10:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_function_send_nonpayable$_t_uint256_$returns$_t_bool_$",
+												"typeString" : "function (uint256) returns (bool)"
+											}
+										},
+										"id" : 242,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"kind" : "functionCall",
+										"lValueRequested" : false,
+										"names" : [],
+										"nodeType" : "FunctionCall",
+										"src" : "3915:28:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 245,
+								"nodeType" : "IfStatement",
+								"src" : "3911:39:0",
+								"trueBody" : 
+								{
+									"id" : 244,
+									"nodeType" : "Throw",
+									"src" : "3945:5:0"
+								}
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 247,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 237,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 236,
+								"name" : "onlyOwner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 48,
+								"src" : "3888:9:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "3888:9:0"
+						}
+					],
+					"name" : "withdraw",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 235,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 234,
+								"name" : "withdrawalAmount",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 247,
+								"src" : "3865:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 233,
+									"name" : "uint",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "3865:4:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "3864:23:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 238,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "3898:0:0"
+					},
+					"scope" : 294,
+					"src" : "3847:154:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 260,
+						"nodeType" : "Block",
+						"src" : "4042:103:0",
+						"statements" : 
+						[
+							{
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"id" : 257,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "UnaryOperation",
+									"operator" : "!",
+									"prefix" : true,
+									"src" : "4058:25:0",
+									"subExpression" : 
+									{
+										"argumentTypes" : null,
+										"arguments" : 
+										[
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 254,
+													"name" : "this",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 324,
+													"src" : "4070:4:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_contract$_SYCEarlyPurchase_$294",
+														"typeString" : "contract SYCEarlyPurchase"
+													}
+												},
+												"id" : 255,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "balance",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : null,
+												"src" : "4070:12:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											}
+										],
+										"expression" : 
+										{
+											"argumentTypes" : 
+											[
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											],
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 252,
+												"name" : "owner",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 21,
+												"src" : "4059:5:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"id" : 253,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "send",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "4059:10:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_function_send_nonpayable$_t_uint256_$returns$_t_bool_$",
+												"typeString" : "function (uint256) returns (bool)"
+											}
+										},
+										"id" : 256,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"kind" : "functionCall",
+										"lValueRequested" : false,
+										"names" : [],
+										"nodeType" : "FunctionCall",
+										"src" : "4059:24:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_bool",
+											"typeString" : "bool"
+										}
+									},
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"falseBody" : null,
+								"id" : 259,
+								"nodeType" : "IfStatement",
+								"src" : "4055:35:0",
+								"trueBody" : 
+								{
+									"id" : 258,
+									"nodeType" : "Throw",
+									"src" : "4085:5:0"
+								}
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 261,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 250,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 249,
+								"name" : "onlyOwner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 48,
+								"src" : "4032:9:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "4032:9:0"
+						}
+					],
+					"name" : "withdrawAll",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 248,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4029:2:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 251,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4042:0:0"
+					},
+					"scope" : 294,
+					"src" : "4009:136:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 272,
+						"nodeType" : "Block",
+						"src" : "4208:35:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 270,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 268,
+										"name" : "owner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 21,
+										"src" : "4219:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 269,
+										"name" : "newOwner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 263,
+										"src" : "4227:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "4219:16:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 271,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4219:16:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 273,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 266,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 265,
+								"name" : "onlyOwner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 48,
+								"src" : "4198:9:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "4198:9:0"
+						}
+					],
+					"name" : "transferOwnership",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 264,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 263,
+								"name" : "newOwner",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 273,
+								"src" : "4180:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 262,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "4180:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "4179:18:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 267,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4208:0:0"
+					},
+					"scope" : 294,
+					"src" : "4153:90:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 292,
+						"nodeType" : "Block",
+						"src" : "4351:131:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"commonType" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											"id" : 280,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"leftExpression" : 
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 277,
+													"name" : "msg",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 309,
+													"src" : "4370:3:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_magic_message",
+														"typeString" : "msg"
+													}
+												},
+												"id" : 278,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "value",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : null,
+												"src" : "4370:9:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"nodeType" : "BinaryOperation",
+											"operator" : ">=",
+											"rightExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 279,
+												"name" : "WEI_MINIMUM_PURCHASE",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "4383:20:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"src" : "4370:33:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										],
+										"id" : 276,
+										"name" : "require",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : 
+										[
+											312,
+											313
+										],
+										"referencedDeclaration" : 312,
+										"src" : "4362:7:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_require_pure$_t_bool_$returns$__$",
+											"typeString" : "function (bool) pure"
+										}
+									},
+									"id" : 281,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "4362:42:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 282,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4362:42:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 284,
+												"name" : "msg",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 309,
+												"src" : "4435:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_magic_message",
+													"typeString" : "msg"
+												}
+											},
+											"id" : 285,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "sender",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "4435:10:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 286,
+												"name" : "msg",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 309,
+												"src" : "4447:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_magic_message",
+													"typeString" : "msg"
+												}
+											},
+											"id" : 287,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "value",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "4447:9:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 288,
+												"name" : "block",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 299,
+												"src" : "4458:5:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_magic_block",
+													"typeString" : "block"
+												}
+											},
+											"id" : 289,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "timestamp",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "4458:15:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											},
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										],
+										"id" : 283,
+										"name" : "appendEarlyPurchase",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 193,
+										"src" : "4415:19:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$",
+											"typeString" : "function (address,uint256,uint256) returns (bool)"
+										}
+									},
+									"id" : 290,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "4415:59:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"id" : 291,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4415:59:0"
+							}
+						]
+					},
+					"documentation" : "@dev By sending Ether to the contract, early purchase will be recorded.\r",
+					"id" : 293,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 274,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4341:2:0"
+					},
+					"payable" : true,
+					"returnParameters" : 
+					{
+						"id" : 275,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4351:0:0"
+					},
+					"scope" : 294,
+					"src" : "4332:150:0",
+					"stateMutability" : "payable",
+					"superFunction" : null,
+					"visibility" : "public"
+				}
+			],
+			"scope" : 295,
+			"src" : "345:4140:0"
+		}
+	],
+	"src" : "0:4485:0"
+}

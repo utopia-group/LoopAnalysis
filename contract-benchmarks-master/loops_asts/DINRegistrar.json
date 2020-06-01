@@ -1,0 +1,4363 @@
+JSON AST (compact format):
+
+
+======= ./contract-benchmarks-master/loops/DINRegistrar.sol =======
+{
+	"absolutePath" : "./contract-benchmarks-master/loops/DINRegistrar.sol",
+	"exportedSymbols" : 
+	{
+		"DINRegistrar" : 
+		[
+			316
+		],
+		"DINRegistry" : 
+		[
+			246
+		]
+	},
+	"id" : 317,
+	"nodeType" : "SourceUnit",
+	"nodes" : 
+	[
+		{
+			"id" : 1,
+			"literals" : 
+			[
+				"solidity",
+				"^",
+				"0.4",
+				".11"
+			],
+			"nodeType" : "PragmaDirective",
+			"src" : "0:24:0"
+		},
+		{
+			"baseContracts" : [],
+			"contractDependencies" : [],
+			"contractKind" : "contract",
+			"documentation" : "@title Decentralized Identification Number (DIN) registry. ",
+			"fullyImplemented" : true,
+			"id" : 246,
+			"linearizedBaseContracts" : 
+			[
+				246
+			],
+			"name" : "DINRegistry",
+			"nodeType" : "ContractDefinition",
+			"nodes" : 
+			[
+				{
+					"canonicalName" : "DINRegistry.Record",
+					"id" : 8,
+					"members" : 
+					[
+						{
+							"constant" : false,
+							"id" : 3,
+							"name" : "owner",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 8,
+							"src" : "150:13:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_address",
+								"typeString" : "address"
+							},
+							"typeName" : 
+							{
+								"id" : 2,
+								"name" : "address",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "150:7:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 5,
+							"name" : "resolver",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 8,
+							"src" : "174:16:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_address",
+								"typeString" : "address"
+							},
+							"typeName" : 
+							{
+								"id" : 4,
+								"name" : "address",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "174:7:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						},
+						{
+							"constant" : false,
+							"id" : 7,
+							"name" : "updated",
+							"nodeType" : "VariableDeclaration",
+							"scope" : 8,
+							"src" : "251:15:0",
+							"stateVariable" : false,
+							"storageLocation" : "default",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_uint256",
+								"typeString" : "uint256"
+							},
+							"typeName" : 
+							{
+								"id" : 6,
+								"name" : "uint256",
+								"nodeType" : "ElementaryTypeName",
+								"src" : "251:7:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								}
+							},
+							"value" : null,
+							"visibility" : "internal"
+						}
+					],
+					"name" : "Record",
+					"nodeType" : "StructDefinition",
+					"scope" : 246,
+					"src" : "125:170:0",
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 12,
+					"name" : "records",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 246,
+					"src" : "325:35:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+						"typeString" : "mapping(uint256 => struct DINRegistry.Record)"
+					},
+					"typeName" : 
+					{
+						"id" : 11,
+						"keyType" : 
+						{
+							"id" : 9,
+							"name" : "uint256",
+							"nodeType" : "ElementaryTypeName",
+							"src" : "334:7:0",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_uint256",
+								"typeString" : "uint256"
+							}
+						},
+						"nodeType" : "Mapping",
+						"src" : "325:27:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+							"typeString" : "mapping(uint256 => struct DINRegistry.Record)"
+						},
+						"valueType" : 
+						{
+							"contractScope" : null,
+							"id" : 10,
+							"name" : "Record",
+							"nodeType" : "UserDefinedTypeName",
+							"referencedDeclaration" : 8,
+							"src" : "345:6:0",
+							"typeDescriptions" : 
+							{
+								"typeIdentifier" : "t_struct$_Record_$8_storage_ptr",
+								"typeString" : "struct DINRegistry.Record"
+							}
+						}
+					},
+					"value" : null,
+					"visibility" : "internal"
+				},
+				{
+					"constant" : false,
+					"id" : 14,
+					"name" : "registrar",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 246,
+					"src" : "406:24:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_address",
+						"typeString" : "address"
+					},
+					"typeName" : 
+					{
+						"id" : 13,
+						"name" : "address",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "406:7:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_address",
+							"typeString" : "address"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 16,
+					"name" : "genesis",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 246,
+					"src" : "473:22:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 15,
+						"name" : "uint256",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "473:7:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 26,
+						"nodeType" : "Block",
+						"src" : "528:63:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"commonType" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											},
+											"id" : 22,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"leftExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 19,
+												"name" : "registrar",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 14,
+												"src" : "547:9:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"nodeType" : "BinaryOperation",
+											"operator" : "==",
+											"rightExpression" : 
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 20,
+													"name" : "msg",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 331,
+													"src" : "560:3:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_magic_message",
+														"typeString" : "msg"
+													}
+												},
+												"id" : 21,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "sender",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : null,
+												"src" : "560:10:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"src" : "547:23:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										],
+										"id" : 18,
+										"name" : "require",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : 
+										[
+											334,
+											335
+										],
+										"referencedDeclaration" : 334,
+										"src" : "539:7:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_require_pure$_t_bool_$returns$__$",
+											"typeString" : "function (bool) pure"
+										}
+									},
+									"id" : 23,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "539:32:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 24,
+								"nodeType" : "ExpressionStatement",
+								"src" : "539:32:0"
+							},
+							{
+								"id" : 25,
+								"nodeType" : "PlaceholderStatement",
+								"src" : "582:1:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 27,
+					"name" : "only_registrar",
+					"nodeType" : "ModifierDefinition",
+					"parameters" : 
+					{
+						"id" : 17,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "528:0:0"
+					},
+					"src" : "504:87:0",
+					"visibility" : "internal"
+				},
+				{
+					"body" : 
+					{
+						"id" : 42,
+						"nodeType" : "Block",
+						"src" : "632:72:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"commonType" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											},
+											"id" : 38,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"leftExpression" : 
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"baseExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 32,
+														"name" : "records",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 12,
+														"src" : "651:7:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+															"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+														}
+													},
+													"id" : 34,
+													"indexExpression" : 
+													{
+														"argumentTypes" : null,
+														"id" : 33,
+														"name" : "DIN",
+														"nodeType" : "Identifier",
+														"overloadedDeclarations" : [],
+														"referencedDeclaration" : 29,
+														"src" : "659:3:0",
+														"typeDescriptions" : 
+														{
+															"typeIdentifier" : "t_uint256",
+															"typeString" : "uint256"
+														}
+													},
+													"isConstant" : false,
+													"isLValue" : true,
+													"isPure" : false,
+													"lValueRequested" : false,
+													"nodeType" : "IndexAccess",
+													"src" : "651:12:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_struct$_Record_$8_storage",
+														"typeString" : "struct DINRegistry.Record storage ref"
+													}
+												},
+												"id" : 35,
+												"isConstant" : false,
+												"isLValue" : true,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "owner",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : 3,
+												"src" : "651:18:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"nodeType" : "BinaryOperation",
+											"operator" : "==",
+											"rightExpression" : 
+											{
+												"argumentTypes" : null,
+												"expression" : 
+												{
+													"argumentTypes" : null,
+													"id" : 36,
+													"name" : "msg",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 331,
+													"src" : "673:3:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_magic_message",
+														"typeString" : "msg"
+													}
+												},
+												"id" : 37,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"lValueRequested" : false,
+												"memberName" : "sender",
+												"nodeType" : "MemberAccess",
+												"referencedDeclaration" : null,
+												"src" : "673:10:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_address",
+													"typeString" : "address"
+												}
+											},
+											"src" : "651:32:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										],
+										"id" : 31,
+										"name" : "require",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : 
+										[
+											334,
+											335
+										],
+										"referencedDeclaration" : 334,
+										"src" : "643:7:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_require_pure$_t_bool_$returns$__$",
+											"typeString" : "function (bool) pure"
+										}
+									},
+									"id" : 39,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "643:41:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 40,
+								"nodeType" : "ExpressionStatement",
+								"src" : "643:41:0"
+							},
+							{
+								"id" : 41,
+								"nodeType" : "PlaceholderStatement",
+								"src" : "695:1:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 43,
+					"name" : "only_owner",
+					"nodeType" : "ModifierDefinition",
+					"parameters" : 
+					{
+						"id" : 30,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 29,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 43,
+								"src" : "619:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 28,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "619:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "618:13:0"
+					},
+					"src" : "599:105:0",
+					"visibility" : "internal"
+				},
+				{
+					"anonymous" : false,
+					"documentation" : null,
+					"id" : 49,
+					"name" : "NewOwner",
+					"nodeType" : "EventDefinition",
+					"parameters" : 
+					{
+						"id" : 48,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 45,
+								"indexed" : true,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 49,
+								"src" : "804:19:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 44,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "804:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 47,
+								"indexed" : true,
+								"name" : "owner",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 49,
+								"src" : "825:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 46,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "825:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "803:44:0"
+					},
+					"src" : "789:59:0"
+				},
+				{
+					"anonymous" : false,
+					"documentation" : null,
+					"id" : 55,
+					"name" : "NewResolver",
+					"nodeType" : "EventDefinition",
+					"parameters" : 
+					{
+						"id" : 54,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 51,
+								"indexed" : true,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 55,
+								"src" : "938:19:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 50,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "938:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 53,
+								"indexed" : true,
+								"name" : "resolver",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 55,
+								"src" : "959:24:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 52,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "959:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "937:47:0"
+					},
+					"src" : "920:65:0"
+				},
+				{
+					"anonymous" : false,
+					"documentation" : null,
+					"id" : 61,
+					"name" : "NewRegistration",
+					"nodeType" : "EventDefinition",
+					"parameters" : 
+					{
+						"id" : 60,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 57,
+								"indexed" : true,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 61,
+								"src" : "1060:19:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 56,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1060:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 59,
+								"indexed" : true,
+								"name" : "owner",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 61,
+								"src" : "1081:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 58,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1081:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1059:44:0"
+					},
+					"src" : "1038:66:0"
+				},
+				{
+					"anonymous" : false,
+					"documentation" : null,
+					"id" : 65,
+					"name" : "NewRegistrar",
+					"nodeType" : "EventDefinition",
+					"parameters" : 
+					{
+						"id" : 64,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 63,
+								"indexed" : true,
+								"name" : "registrar",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 65,
+								"src" : "1186:25:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 62,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1186:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1185:27:0"
+					},
+					"src" : "1167:46:0"
+				},
+				{
+					"body" : 
+					{
+						"id" : 96,
+						"nodeType" : "Block",
+						"src" : "1348:265:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 72,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 70,
+										"name" : "genesis",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 16,
+										"src" : "1359:7:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 71,
+										"name" : "_genesis",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 67,
+										"src" : "1369:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "1359:18:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 73,
+								"nodeType" : "ExpressionStatement",
+								"src" : "1359:18:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 80,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 74,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "1470:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 76,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 75,
+												"name" : "genesis",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 16,
+												"src" : "1478:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "1470:16:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 77,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "owner",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 3,
+										"src" : "1470:22:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 78,
+											"name" : "msg",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 331,
+											"src" : "1495:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_message",
+												"typeString" : "msg"
+											}
+										},
+										"id" : 79,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "sender",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "1495:10:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "1470:35:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 81,
+								"nodeType" : "ExpressionStatement",
+								"src" : "1470:35:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 88,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 82,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "1516:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 84,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 83,
+												"name" : "genesis",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 16,
+												"src" : "1524:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "1516:16:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 85,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "updated",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 7,
+										"src" : "1516:24:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 86,
+											"name" : "block",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 321,
+											"src" : "1543:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_block",
+												"typeString" : "block"
+											}
+										},
+										"id" : 87,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "timestamp",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "1543:15:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "1516:42:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 89,
+								"nodeType" : "ExpressionStatement",
+								"src" : "1516:42:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 91,
+											"name" : "genesis",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 16,
+											"src" : "1585:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 92,
+												"name" : "msg",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 331,
+												"src" : "1594:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_magic_message",
+													"typeString" : "msg"
+												}
+											},
+											"id" : 93,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "sender",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "1594:10:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										],
+										"id" : 90,
+										"name" : "NewRegistration",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 61,
+										"src" : "1569:15:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_event_nonpayable$_t_uint256_$_t_address_$returns$__$",
+											"typeString" : "function (uint256,address)"
+										}
+									},
+									"id" : 94,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "1569:36:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 95,
+								"nodeType" : "ExpressionStatement",
+								"src" : "1569:36:0"
+							}
+						]
+					},
+					"documentation" : "@dev Constructor.\r\n@param _genesis The first DIN registered.\r",
+					"id" : 97,
+					"implemented" : true,
+					"isConstructor" : true,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "DINRegistry",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 68,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 67,
+								"name" : "_genesis",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 97,
+								"src" : "1330:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 66,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1330:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1329:18:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 69,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "1348:0:0"
+					},
+					"scope" : 246,
+					"src" : "1309:304:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 109,
+						"nodeType" : "Block",
+						"src" : "1718:44:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"baseExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 104,
+											"name" : "records",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 12,
+											"src" : "1736:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+												"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+											}
+										},
+										"id" : 106,
+										"indexExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 105,
+											"name" : "DIN",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 99,
+											"src" : "1744:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "IndexAccess",
+										"src" : "1736:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_struct$_Record_$8_storage",
+											"typeString" : "struct DINRegistry.Record storage ref"
+										}
+									},
+									"id" : 107,
+									"isConstant" : false,
+									"isLValue" : true,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"memberName" : "owner",
+									"nodeType" : "MemberAccess",
+									"referencedDeclaration" : 3,
+									"src" : "1736:18:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"functionReturnParameters" : 103,
+								"id" : 108,
+								"nodeType" : "Return",
+								"src" : "1729:25:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 110,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "owner",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 100,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 99,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 110,
+								"src" : "1678:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 98,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1678:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1677:13:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 103,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 102,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 110,
+								"src" : "1709:7:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 101,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1709:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1708:9:0"
+					},
+					"scope" : 246,
+					"src" : "1663:99:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 140,
+						"nodeType" : "Block",
+						"src" : "1983:125:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 125,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 120,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "1994:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 122,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 121,
+												"name" : "DIN",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 112,
+												"src" : "2002:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "1994:12:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 123,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "owner",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 3,
+										"src" : "1994:18:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 124,
+										"name" : "owner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 114,
+										"src" : "2015:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "1994:26:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 126,
+								"nodeType" : "ExpressionStatement",
+								"src" : "1994:26:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 133,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 127,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "2031:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 129,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 128,
+												"name" : "DIN",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 112,
+												"src" : "2039:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "2031:12:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 130,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "updated",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 7,
+										"src" : "2031:20:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 131,
+											"name" : "block",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 321,
+											"src" : "2054:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_block",
+												"typeString" : "block"
+											}
+										},
+										"id" : 132,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "timestamp",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "2054:15:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "2031:38:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 134,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2031:38:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 136,
+											"name" : "DIN",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 112,
+											"src" : "2089:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"id" : 137,
+											"name" : "owner",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 114,
+											"src" : "2094:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										],
+										"id" : 135,
+										"name" : "NewOwner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 49,
+										"src" : "2080:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_event_nonpayable$_t_uint256_$_t_address_$returns$__$",
+											"typeString" : "function (uint256,address)"
+										}
+									},
+									"id" : 138,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "2080:20:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 139,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2080:20:0"
+							}
+						]
+					},
+					"documentation" : "@dev Transfer ownership of a DIN.\r\n@param DIN The DIN to transfer.\r\n@param owner The address of the new owner.\r",
+					"id" : 141,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : 
+							[
+								{
+									"argumentTypes" : null,
+									"id" : 117,
+									"name" : "DIN",
+									"nodeType" : "Identifier",
+									"overloadedDeclarations" : [],
+									"referencedDeclaration" : 112,
+									"src" : "1978:3:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								}
+							],
+							"id" : 118,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 116,
+								"name" : "only_owner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 43,
+								"src" : "1967:10:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$_t_uint256_$",
+									"typeString" : "modifier (uint256)"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "1967:15:0"
+						}
+					],
+					"name" : "setOwner",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 115,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 112,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 141,
+								"src" : "1939:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 111,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1939:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 114,
+								"name" : "owner",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 141,
+								"src" : "1952:13:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 113,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "1952:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "1938:28:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 119,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "1983:0:0"
+					},
+					"scope" : 246,
+					"src" : "1921:187:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 153,
+						"nodeType" : "Block",
+						"src" : "2219:47:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"baseExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 148,
+											"name" : "records",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 12,
+											"src" : "2237:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+												"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+											}
+										},
+										"id" : 150,
+										"indexExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 149,
+											"name" : "DIN",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 143,
+											"src" : "2245:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "IndexAccess",
+										"src" : "2237:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_struct$_Record_$8_storage",
+											"typeString" : "struct DINRegistry.Record storage ref"
+										}
+									},
+									"id" : 151,
+									"isConstant" : false,
+									"isLValue" : true,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"memberName" : "resolver",
+									"nodeType" : "MemberAccess",
+									"referencedDeclaration" : 5,
+									"src" : "2237:21:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"functionReturnParameters" : 147,
+								"id" : 152,
+								"nodeType" : "Return",
+								"src" : "2230:28:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 154,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "resolver",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 144,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 143,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 154,
+								"src" : "2179:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 142,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2179:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2178:13:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 147,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 146,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 154,
+								"src" : "2210:7:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 145,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2210:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2209:9:0"
+					},
+					"scope" : 246,
+					"src" : "2161:105:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 184,
+						"nodeType" : "Block",
+						"src" : "2491:137:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 169,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 164,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "2502:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 166,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 165,
+												"name" : "DIN",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 156,
+												"src" : "2510:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "2502:12:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 167,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "resolver",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 5,
+										"src" : "2502:21:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 168,
+										"name" : "resolver",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 158,
+										"src" : "2526:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "2502:32:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 170,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2502:32:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 177,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 171,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "2545:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 173,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 172,
+												"name" : "DIN",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 156,
+												"src" : "2553:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "2545:12:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 174,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "updated",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 7,
+										"src" : "2545:20:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 175,
+											"name" : "block",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 321,
+											"src" : "2568:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_block",
+												"typeString" : "block"
+											}
+										},
+										"id" : 176,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "timestamp",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "2568:15:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "2545:38:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 178,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2545:38:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 180,
+											"name" : "DIN",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 156,
+											"src" : "2606:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"id" : 181,
+											"name" : "resolver",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 158,
+											"src" : "2611:8:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										],
+										"id" : 179,
+										"name" : "NewResolver",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 55,
+										"src" : "2594:11:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_event_nonpayable$_t_uint256_$_t_address_$returns$__$",
+											"typeString" : "function (uint256,address)"
+										}
+									},
+									"id" : 182,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "2594:26:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 183,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2594:26:0"
+							}
+						]
+					},
+					"documentation" : "@dev Set the resolver of a DIN.\r\n@param DIN The DIN to update.\r\n@param resolver The address of the resolver.\r",
+					"id" : 185,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : 
+							[
+								{
+									"argumentTypes" : null,
+									"id" : 161,
+									"name" : "DIN",
+									"nodeType" : "Identifier",
+									"overloadedDeclarations" : [],
+									"referencedDeclaration" : 156,
+									"src" : "2486:3:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								}
+							],
+							"id" : 162,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 160,
+								"name" : "only_owner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 43,
+								"src" : "2475:10:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$_t_uint256_$",
+									"typeString" : "modifier (uint256)"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "2475:15:0"
+						}
+					],
+					"name" : "setResolver",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 159,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 156,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 185,
+								"src" : "2444:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 155,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2444:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 158,
+								"name" : "resolver",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 185,
+								"src" : "2457:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 157,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2457:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2443:31:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 163,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "2491:0:0"
+					},
+					"scope" : 246,
+					"src" : "2423:205:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 197,
+						"nodeType" : "Block",
+						"src" : "2755:46:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"baseExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 192,
+											"name" : "records",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 12,
+											"src" : "2773:7:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+												"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+											}
+										},
+										"id" : 194,
+										"indexExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 193,
+											"name" : "DIN",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 187,
+											"src" : "2781:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "IndexAccess",
+										"src" : "2773:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_struct$_Record_$8_storage",
+											"typeString" : "struct DINRegistry.Record storage ref"
+										}
+									},
+									"id" : 195,
+									"isConstant" : false,
+									"isLValue" : true,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"memberName" : "updated",
+									"nodeType" : "MemberAccess",
+									"referencedDeclaration" : 7,
+									"src" : "2773:20:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"functionReturnParameters" : 191,
+								"id" : 196,
+								"nodeType" : "Return",
+								"src" : "2766:27:0"
+							}
+						]
+					},
+					"documentation" : null,
+					"id" : 198,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : true,
+					"modifiers" : [],
+					"name" : "updated",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 188,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 187,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 198,
+								"src" : "2715:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 186,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2715:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2714:13:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 191,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 190,
+								"name" : "",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 198,
+								"src" : "2746:7:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 189,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2746:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2745:9:0"
+					},
+					"scope" : 246,
+					"src" : "2698:103:0",
+					"stateMutability" : "view",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 227,
+						"nodeType" : "Block",
+						"src" : "2978:132:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 212,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 207,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "2989:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 209,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 208,
+												"name" : "DIN",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 200,
+												"src" : "2997:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "2989:12:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 210,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "owner",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 3,
+										"src" : "2989:18:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 211,
+										"name" : "owner",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 202,
+										"src" : "3010:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "2989:26:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 213,
+								"nodeType" : "ExpressionStatement",
+								"src" : "2989:26:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 220,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"baseExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 214,
+												"name" : "records",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 12,
+												"src" : "3026:7:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_mapping$_t_uint256_$_t_struct$_Record_$8_storage_$",
+													"typeString" : "mapping(uint256 => struct DINRegistry.Record storage ref)"
+												}
+											},
+											"id" : 216,
+											"indexExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 215,
+												"name" : "DIN",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 200,
+												"src" : "3034:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"isConstant" : false,
+											"isLValue" : true,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"nodeType" : "IndexAccess",
+											"src" : "3026:12:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_struct$_Record_$8_storage",
+												"typeString" : "struct DINRegistry.Record storage ref"
+											}
+										},
+										"id" : 217,
+										"isConstant" : false,
+										"isLValue" : true,
+										"isPure" : false,
+										"lValueRequested" : true,
+										"memberName" : "updated",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 7,
+										"src" : "3026:20:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 218,
+											"name" : "block",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 321,
+											"src" : "3049:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_magic_block",
+												"typeString" : "block"
+											}
+										},
+										"id" : 219,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "timestamp",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : null,
+										"src" : "3049:15:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "3026:38:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 221,
+								"nodeType" : "ExpressionStatement",
+								"src" : "3026:38:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 223,
+											"name" : "DIN",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 200,
+											"src" : "3091:3:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"id" : 224,
+											"name" : "owner",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 202,
+											"src" : "3096:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										],
+										"id" : 222,
+										"name" : "NewRegistration",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 61,
+										"src" : "3075:15:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_event_nonpayable$_t_uint256_$_t_address_$returns$__$",
+											"typeString" : "function (uint256,address)"
+										}
+									},
+									"id" : 225,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "3075:27:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 226,
+								"nodeType" : "ExpressionStatement",
+								"src" : "3075:27:0"
+							}
+						]
+					},
+					"documentation" : "@dev Register a new DIN.\r\n@param owner The account that will own the DIN.\r",
+					"id" : 228,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : null,
+							"id" : 205,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 204,
+								"name" : "only_registrar",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 27,
+								"src" : "2963:14:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$__$",
+									"typeString" : "modifier ()"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "2963:14:0"
+						}
+					],
+					"name" : "register",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 203,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 200,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 228,
+								"src" : "2935:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 199,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2935:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 202,
+								"name" : "owner",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 228,
+								"src" : "2948:13:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 201,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "2948:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "2934:28:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 206,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "2978:0:0"
+					},
+					"scope" : 246,
+					"src" : "2917:193:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 244,
+						"nodeType" : "Block",
+						"src" : "3305:76:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 238,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 236,
+										"name" : "registrar",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 14,
+										"src" : "3316:9:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 237,
+										"name" : "_registrar",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 230,
+										"src" : "3328:10:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_address",
+											"typeString" : "address"
+										}
+									},
+									"src" : "3316:22:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"id" : 239,
+								"nodeType" : "ExpressionStatement",
+								"src" : "3316:22:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 241,
+											"name" : "_registrar",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 230,
+											"src" : "3362:10:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										],
+										"id" : 240,
+										"name" : "NewRegistrar",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 65,
+										"src" : "3349:12:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_event_nonpayable$_t_address_$returns$__$",
+											"typeString" : "function (address)"
+										}
+									},
+									"id" : 242,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "3349:24:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 243,
+								"nodeType" : "ExpressionStatement",
+								"src" : "3349:24:0"
+							}
+						]
+					},
+					"documentation" : "@dev Change the DINRegistrar contract.\r\n@param _registrar The address of the new registrar.\r",
+					"id" : 245,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : 
+					[
+						{
+							"arguments" : 
+							[
+								{
+									"argumentTypes" : null,
+									"id" : 233,
+									"name" : "genesis",
+									"nodeType" : "Identifier",
+									"overloadedDeclarations" : [],
+									"referencedDeclaration" : 16,
+									"src" : "3296:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								}
+							],
+							"id" : 234,
+							"modifierName" : 
+							{
+								"argumentTypes" : null,
+								"id" : 232,
+								"name" : "only_owner",
+								"nodeType" : "Identifier",
+								"overloadedDeclarations" : [],
+								"referencedDeclaration" : 43,
+								"src" : "3285:10:0",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_modifier$_t_uint256_$",
+									"typeString" : "modifier (uint256)"
+								}
+							},
+							"nodeType" : "ModifierInvocation",
+							"src" : "3285:19:0"
+						}
+					],
+					"name" : "setRegistrar",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 231,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 230,
+								"name" : "_registrar",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 245,
+								"src" : "3265:18:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_address",
+									"typeString" : "address"
+								},
+								"typeName" : 
+								{
+									"id" : 229,
+									"name" : "address",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "3265:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_address",
+										"typeString" : "address"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "3264:20:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 235,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "3305:0:0"
+					},
+					"scope" : 246,
+					"src" : "3243:138:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				}
+			],
+			"scope" : 317,
+			"src" : "95:3291:0"
+		},
+		{
+			"baseContracts" : [],
+			"contractDependencies" : [],
+			"contractKind" : "contract",
+			"documentation" : "@title Decentralized Identification Number (DIN) registrar. Registers new DINs ",
+			"fullyImplemented" : true,
+			"id" : 316,
+			"linearizedBaseContracts" : 
+			[
+				316
+			],
+			"name" : "DINRegistrar",
+			"nodeType" : "ContractDefinition",
+			"nodes" : 
+			[
+				{
+					"constant" : false,
+					"id" : 248,
+					"name" : "registry",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 316,
+					"src" : "3541:20:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_contract$_DINRegistry_$246",
+						"typeString" : "contract DINRegistry"
+					},
+					"typeName" : 
+					{
+						"contractScope" : null,
+						"id" : 247,
+						"name" : "DINRegistry",
+						"nodeType" : "UserDefinedTypeName",
+						"referencedDeclaration" : 246,
+						"src" : "3541:11:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_contract$_DINRegistry_$246",
+							"typeString" : "contract DINRegistry"
+						}
+					},
+					"value" : null,
+					"visibility" : "internal"
+				},
+				{
+					"constant" : false,
+					"id" : 250,
+					"name" : "index",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 316,
+					"src" : "3635:20:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 249,
+						"name" : "uint256",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "3635:7:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : null,
+					"visibility" : "public"
+				},
+				{
+					"constant" : false,
+					"id" : 253,
+					"name" : "MAX_QUANTITY",
+					"nodeType" : "VariableDeclaration",
+					"scope" : 316,
+					"src" : "3747:32:0",
+					"stateVariable" : true,
+					"storageLocation" : "default",
+					"typeDescriptions" : 
+					{
+						"typeIdentifier" : "t_uint256",
+						"typeString" : "uint256"
+					},
+					"typeName" : 
+					{
+						"id" : 251,
+						"name" : "uint256",
+						"nodeType" : "ElementaryTypeName",
+						"src" : "3747:7:0",
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_uint256",
+							"typeString" : "uint256"
+						}
+					},
+					"value" : 
+					{
+						"argumentTypes" : null,
+						"hexValue" : "3130",
+						"id" : 252,
+						"isConstant" : false,
+						"isLValue" : false,
+						"isPure" : true,
+						"kind" : "number",
+						"lValueRequested" : false,
+						"nodeType" : "Literal",
+						"src" : "3777:2:0",
+						"subdenomination" : null,
+						"typeDescriptions" : 
+						{
+							"typeIdentifier" : "t_rational_10_by_1",
+							"typeString" : "int_const 10"
+						},
+						"value" : "10"
+					},
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 268,
+						"nodeType" : "Block",
+						"src" : "3940:122:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 262,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 260,
+										"name" : "registry",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 248,
+										"src" : "3951:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_contract$_DINRegistry_$246",
+											"typeString" : "contract DINRegistry"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 261,
+										"name" : "_registry",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 255,
+										"src" : "3962:9:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_contract$_DINRegistry_$246",
+											"typeString" : "contract DINRegistry"
+										}
+									},
+									"src" : "3951:20:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_contract$_DINRegistry_$246",
+										"typeString" : "contract DINRegistry"
+									}
+								},
+								"id" : 263,
+								"nodeType" : "ExpressionStatement",
+								"src" : "3951:20:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 266,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 264,
+										"name" : "index",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 250,
+										"src" : "4038:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "Assignment",
+									"operator" : "=",
+									"rightHandSide" : 
+									{
+										"argumentTypes" : null,
+										"id" : 265,
+										"name" : "_genesis",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 257,
+										"src" : "4046:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "4038:16:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 267,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4038:16:0"
+							}
+						]
+					},
+					"documentation" : "@dev Constructor.\r\n@param _registry The DINRegistry contract.\r",
+					"id" : 269,
+					"implemented" : true,
+					"isConstructor" : true,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "DINRegistrar",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 258,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 255,
+								"name" : "_registry",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 269,
+								"src" : "3899:21:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_contract$_DINRegistry_$246",
+									"typeString" : "contract DINRegistry"
+								},
+								"typeName" : 
+								{
+									"contractScope" : null,
+									"id" : 254,
+									"name" : "DINRegistry",
+									"nodeType" : "UserDefinedTypeName",
+									"referencedDeclaration" : 246,
+									"src" : "3899:11:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_contract$_DINRegistry_$246",
+										"typeString" : "contract DINRegistry"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							},
+							{
+								"constant" : false,
+								"id" : 257,
+								"name" : "_genesis",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 269,
+								"src" : "3922:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 256,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "3922:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "3898:41:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 259,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "3940:0:0"
+					},
+					"scope" : 316,
+					"src" : "3877:185:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 287,
+						"nodeType" : "Block",
+						"src" : "4212:96:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 275,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"nodeType" : "UnaryOperation",
+									"operator" : "++",
+									"prefix" : false,
+									"src" : "4223:7:0",
+									"subExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 274,
+										"name" : "index",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 250,
+										"src" : "4223:5:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"id" : 276,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4223:7:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"id" : 280,
+											"name" : "index",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 250,
+											"src" : "4259:5:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										{
+											"argumentTypes" : null,
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 281,
+												"name" : "msg",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 331,
+												"src" : "4266:3:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_magic_message",
+													"typeString" : "msg"
+												}
+											},
+											"id" : 282,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"memberName" : "sender",
+											"nodeType" : "MemberAccess",
+											"referencedDeclaration" : null,
+											"src" : "4266:10:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											{
+												"typeIdentifier" : "t_address",
+												"typeString" : "address"
+											}
+										],
+										"expression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 277,
+											"name" : "registry",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 248,
+											"src" : "4241:8:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_contract$_DINRegistry_$246",
+												"typeString" : "contract DINRegistry"
+											}
+										},
+										"id" : 279,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"memberName" : "register",
+										"nodeType" : "MemberAccess",
+										"referencedDeclaration" : 228,
+										"src" : "4241:17:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_external_nonpayable$_t_uint256_$_t_address_$returns$__$",
+											"typeString" : "function (uint256,address) external"
+										}
+									},
+									"id" : 283,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "4241:36:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 284,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4241:36:0"
+							},
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"id" : 285,
+									"name" : "index",
+									"nodeType" : "Identifier",
+									"overloadedDeclarations" : [],
+									"referencedDeclaration" : 250,
+									"src" : "4295:5:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"functionReturnParameters" : 273,
+								"id" : 286,
+								"nodeType" : "Return",
+								"src" : "4288:12:0"
+							}
+						]
+					},
+					"documentation" : "@dev Register a new DIN.\r\n@return DIN The newly registered DIN.\r",
+					"id" : 288,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "registerDIN",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 270,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4187:2:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 273,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 272,
+								"name" : "DIN",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 288,
+								"src" : "4199:11:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 271,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "4199:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "4198:13:0"
+					},
+					"scope" : 316,
+					"src" : "4167:141:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				},
+				{
+					"body" : 
+					{
+						"id" : 314,
+						"nodeType" : "Block",
+						"src" : "4471:140:0",
+						"statements" : 
+						[
+							{
+								"expression" : 
+								{
+									"argumentTypes" : null,
+									"arguments" : 
+									[
+										{
+											"argumentTypes" : null,
+											"commonType" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											"id" : 296,
+											"isConstant" : false,
+											"isLValue" : false,
+											"isPure" : false,
+											"lValueRequested" : false,
+											"leftExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 294,
+												"name" : "quantity",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 290,
+												"src" : "4490:8:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"nodeType" : "BinaryOperation",
+											"operator" : "<=",
+											"rightExpression" : 
+											{
+												"argumentTypes" : null,
+												"id" : 295,
+												"name" : "MAX_QUANTITY",
+												"nodeType" : "Identifier",
+												"overloadedDeclarations" : [],
+												"referencedDeclaration" : 253,
+												"src" : "4502:12:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"src" : "4490:24:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										}
+									],
+									"expression" : 
+									{
+										"argumentTypes" : 
+										[
+											{
+												"typeIdentifier" : "t_bool",
+												"typeString" : "bool"
+											}
+										],
+										"id" : 293,
+										"name" : "require",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : 
+										[
+											334,
+											335
+										],
+										"referencedDeclaration" : 334,
+										"src" : "4482:7:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_function_require_pure$_t_bool_$returns$__$",
+											"typeString" : "function (bool) pure"
+										}
+									},
+									"id" : 297,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"kind" : "functionCall",
+									"lValueRequested" : false,
+									"names" : [],
+									"nodeType" : "FunctionCall",
+									"src" : "4482:33:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_tuple$__$",
+										"typeString" : "tuple()"
+									}
+								},
+								"id" : 298,
+								"nodeType" : "ExpressionStatement",
+								"src" : "4482:33:0"
+							},
+							{
+								"body" : 
+								{
+									"id" : 312,
+									"nodeType" : "Block",
+									"src" : "4564:40:0",
+									"statements" : 
+									[
+										{
+											"expression" : 
+											{
+												"argumentTypes" : null,
+												"arguments" : [],
+												"expression" : 
+												{
+													"argumentTypes" : [],
+													"id" : 309,
+													"name" : "registerDIN",
+													"nodeType" : "Identifier",
+													"overloadedDeclarations" : [],
+													"referencedDeclaration" : 288,
+													"src" : "4579:11:0",
+													"typeDescriptions" : 
+													{
+														"typeIdentifier" : "t_function_internal_nonpayable$__$returns$_t_uint256_$",
+														"typeString" : "function () returns (uint256)"
+													}
+												},
+												"id" : 310,
+												"isConstant" : false,
+												"isLValue" : false,
+												"isPure" : false,
+												"kind" : "functionCall",
+												"lValueRequested" : false,
+												"names" : [],
+												"nodeType" : "FunctionCall",
+												"src" : "4579:13:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"id" : 311,
+											"nodeType" : "ExpressionStatement",
+											"src" : "4579:13:0"
+										}
+									]
+								},
+								"condition" : 
+								{
+									"argumentTypes" : null,
+									"commonType" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									},
+									"id" : 305,
+									"isConstant" : false,
+									"isLValue" : false,
+									"isPure" : false,
+									"lValueRequested" : false,
+									"leftExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 303,
+										"name" : "i",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 300,
+										"src" : "4545:1:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"nodeType" : "BinaryOperation",
+									"operator" : "<",
+									"rightExpression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 304,
+										"name" : "quantity",
+										"nodeType" : "Identifier",
+										"overloadedDeclarations" : [],
+										"referencedDeclaration" : 290,
+										"src" : "4549:8:0",
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"src" : "4545:12:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_bool",
+										"typeString" : "bool"
+									}
+								},
+								"id" : 313,
+								"initializationExpression" : 
+								{
+									"assignments" : 
+									[
+										300
+									],
+									"declarations" : 
+									[
+										{
+											"constant" : false,
+											"id" : 300,
+											"name" : "i",
+											"nodeType" : "VariableDeclaration",
+											"scope" : 315,
+											"src" : "4533:6:0",
+											"stateVariable" : false,
+											"storageLocation" : "default",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											},
+											"typeName" : 
+											{
+												"id" : 299,
+												"name" : "uint",
+												"nodeType" : "ElementaryTypeName",
+												"src" : "4533:4:0",
+												"typeDescriptions" : 
+												{
+													"typeIdentifier" : "t_uint256",
+													"typeString" : "uint256"
+												}
+											},
+											"value" : null,
+											"visibility" : "internal"
+										}
+									],
+									"id" : 302,
+									"initialValue" : 
+									{
+										"argumentTypes" : null,
+										"hexValue" : "30",
+										"id" : 301,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : true,
+										"kind" : "number",
+										"lValueRequested" : false,
+										"nodeType" : "Literal",
+										"src" : "4542:1:0",
+										"subdenomination" : null,
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_rational_0_by_1",
+											"typeString" : "int_const 0"
+										},
+										"value" : "0"
+									},
+									"nodeType" : "VariableDeclarationStatement",
+									"src" : "4533:10:0"
+								},
+								"loopExpression" : 
+								{
+									"expression" : 
+									{
+										"argumentTypes" : null,
+										"id" : 307,
+										"isConstant" : false,
+										"isLValue" : false,
+										"isPure" : false,
+										"lValueRequested" : false,
+										"nodeType" : "UnaryOperation",
+										"operator" : "++",
+										"prefix" : false,
+										"src" : "4559:3:0",
+										"subExpression" : 
+										{
+											"argumentTypes" : null,
+											"id" : 306,
+											"name" : "i",
+											"nodeType" : "Identifier",
+											"overloadedDeclarations" : [],
+											"referencedDeclaration" : 300,
+											"src" : "4559:1:0",
+											"typeDescriptions" : 
+											{
+												"typeIdentifier" : "t_uint256",
+												"typeString" : "uint256"
+											}
+										},
+										"typeDescriptions" : 
+										{
+											"typeIdentifier" : "t_uint256",
+											"typeString" : "uint256"
+										}
+									},
+									"id" : 308,
+									"nodeType" : "ExpressionStatement",
+									"src" : "4559:3:0"
+								},
+								"nodeType" : "ForStatement",
+								"src" : "4528:76:0"
+							}
+						]
+					},
+					"documentation" : "@dev Register multiple new DINs.\r\n@param quantity The amount of DINs to register.\r",
+					"id" : 315,
+					"implemented" : true,
+					"isConstructor" : false,
+					"isDeclaredConst" : false,
+					"modifiers" : [],
+					"name" : "registerDINs",
+					"nodeType" : "FunctionDefinition",
+					"parameters" : 
+					{
+						"id" : 291,
+						"nodeType" : "ParameterList",
+						"parameters" : 
+						[
+							{
+								"constant" : false,
+								"id" : 290,
+								"name" : "quantity",
+								"nodeType" : "VariableDeclaration",
+								"scope" : 315,
+								"src" : "4453:16:0",
+								"stateVariable" : false,
+								"storageLocation" : "default",
+								"typeDescriptions" : 
+								{
+									"typeIdentifier" : "t_uint256",
+									"typeString" : "uint256"
+								},
+								"typeName" : 
+								{
+									"id" : 289,
+									"name" : "uint256",
+									"nodeType" : "ElementaryTypeName",
+									"src" : "4453:7:0",
+									"typeDescriptions" : 
+									{
+										"typeIdentifier" : "t_uint256",
+										"typeString" : "uint256"
+									}
+								},
+								"value" : null,
+								"visibility" : "internal"
+							}
+						],
+						"src" : "4452:18:0"
+					},
+					"payable" : false,
+					"returnParameters" : 
+					{
+						"id" : 292,
+						"nodeType" : "ParameterList",
+						"parameters" : [],
+						"src" : "4471:0:0"
+					},
+					"scope" : 316,
+					"src" : "4431:180:0",
+					"stateMutability" : "nonpayable",
+					"superFunction" : null,
+					"visibility" : "public"
+				}
+			],
+			"scope" : 317,
+			"src" : "3477:1139:0"
+		}
+	],
+	"src" : "0:4616:0"
+}

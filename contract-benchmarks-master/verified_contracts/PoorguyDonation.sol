@@ -1,0 +1,46 @@
+pragma solidity ^0.4.21;
+
+// Donate all your ethers to poorguy 
+// Made by EtherGuy (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="315445595443564448715c50585d1f525e5c">[email protected]</a>)&#13;
+// CryptoGaming Discord https://discord.gg/gjrHXFr&#13;
+// UI @ https://poorguy.surge.sh&#13;
+&#13;
+contract PoorguyDonation{ &#13;
+    address constant public Donated = 0x26581d1983ced8955C170eB4d3222DCd3845a092;&#13;
+    &#13;
+    event Quote(address Sent, string Text, uint256 AmtDonate);&#13;
+ &#13;
+    string public DonatedBanner = "";&#13;
+    &#13;
+&#13;
+    &#13;
+    function Donate(string quote) public payable {&#13;
+        require(msg.sender != Donated); // GTFO dont donate to yourself&#13;
+        &#13;
+        emit Quote(msg.sender, quote, msg.value);&#13;
+    }&#13;
+    &#13;
+    function Withdraw() public {&#13;
+        if (msg.sender != Donated){&#13;
+            emit Quote(msg.sender, "OMG CHEATER ATTEMPTING TO WITHDRAW", 0);&#13;
+            return;&#13;
+        }&#13;
+        address contr = this;&#13;
+        msg.sender.transfer(contr.balance);&#13;
+    }   &#13;
+    &#13;
+    function DonatorInteract(string text) public {&#13;
+        require(msg.sender == Donated);&#13;
+        emit Quote(msg.sender, text, 0);&#13;
+    }&#13;
+    &#13;
+    function DonatorSetBanner(string img) public {&#13;
+        require(msg.sender == Donated);&#13;
+        DonatedBanner = img;&#13;
+    }&#13;
+    &#13;
+    function() public payable{&#13;
+        require(msg.sender != Donated); // Nice cheat but no donating to yourself &#13;
+    }&#13;
+    &#13;
+}
